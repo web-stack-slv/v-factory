@@ -1,0 +1,3 @@
+<select matNativeControl (change)="onSelect($event.target.value)">  
+  <option *ngFor="let arg of args" [value]="arg.value">{{ arg.label }}</option>
+</select>

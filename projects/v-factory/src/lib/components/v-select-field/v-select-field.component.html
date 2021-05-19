@@ -1,0 +1,22 @@
+<mat-form-field [formGroup]="group">
+  <mat-label>{{field.label}}</mat-label>
+  <mat-select 
+      [formControlName]="field.name" 
+      [multiple]="field.multiple"
+  >
+    <mat-select-trigger *ngIf="field.icons">
+      <mat-icon>{{value}}</mat-icon>&nbsp;&nbsp;&nbsp;{{label}}
+    </mat-select-trigger>
+    <mat-option 
+      *ngFor="let option of field.options" 
+      [value]="option.value">
+      <mat-icon *ngIf="field.icons">{{option.value}}</mat-icon>
+      {{option.label}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngFor="let validation of field.getValMessage()">
+    <ng-container *ngIf="group.get(field.name).hasError(validation.name) && (group.get(field.name).dirty || group.get(field.name).touched)">
+        {{validation.message}}
+    </ng-container>
+</mat-error> 
+</mat-form-field>

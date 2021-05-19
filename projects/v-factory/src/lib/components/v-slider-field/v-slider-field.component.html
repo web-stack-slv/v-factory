@@ -1,0 +1,15 @@
+<ng-container [formGroup]="group">
+    <p>{{field.label}}</p>  
+    <mat-slider
+        [disabled]="this.field.disabled"
+        [invert]="this.field.invert"
+        [min]="this.field.min" 
+        [max]="this.field.max" 
+        [step]="this.field.step"
+        [thumbLabel]="this.field.thumbLabel"
+        [tickInterval]="getSliderTickInterval()"
+        [vertical]="this.field.vertical"
+        [formControlName]="field.name"
+    >
+    </mat-slider>
+</ng-container>

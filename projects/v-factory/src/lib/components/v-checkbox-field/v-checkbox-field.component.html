@@ -1,0 +1,10 @@
+<ng-container [formGroup]="group">
+    <mat-checkbox
+        [formControlName]="field.name"
+        [labelPosition]="field.labelPosition"
+        [disabled]="field.disabled"
+    >
+        {{field.label}}
+    </mat-checkbox>
+</ng-container>
+

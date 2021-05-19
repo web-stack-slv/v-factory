@@ -1,0 +1,7 @@
+<div [formGroup]="group">
+    <mat-label *ngIf="field.label">{{field.label}}</mat-label>
+    <section>
+        <app-toolbar></app-toolbar>
+        <div class="editor-container" #texteditor contenteditable [formControlName]="field.name"></div>
+    </section>
+</div>

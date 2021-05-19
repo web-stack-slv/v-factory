@@ -1,0 +1,18 @@
+.file-input {
+    width: 100%;
+    border: 1px dashed #808080;
+    border-radius: 3px;
+    padding: 10px 5px;
+    color: #808080;
+    margin-bottom: 10px;
+}
+
+.file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-error {
+  color:red;
+  font-size: 0.8rem;
+  width: 100%;
+}

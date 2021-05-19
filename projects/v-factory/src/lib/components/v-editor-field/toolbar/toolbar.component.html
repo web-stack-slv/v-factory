@@ -1,0 +1,59 @@
+<div class="toolbar-container">
+    <div class="toolbar-row">
+        <div class="toolbar-block">
+            <app-toolbar-btn icon="undo" action="undo" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="redo" action="redo" (exec)="execCmd($event)"></app-toolbar-btn>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-btn icon="format_bold" action="bold" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="format_italic" action="italic" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="format_underlined" action="underline" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="strikethrough_s" action="strikeThrough" (exec)="execCmd($event)"></app-toolbar-btn>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-btn icon="format_align_left" action="justifyLeft" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="format_align_center" action="justifyCenter" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="format_align_right" action="justifyRigth" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="format_align_justify" action="justifyFull" (exec)="execCmd($event)"></app-toolbar-btn>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-btn icon="content_cut" action="cut" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="content_copy" action="copy" (exec)="execCmd($event)"></app-toolbar-btn>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-btn icon="format_indent_increase" action="indent" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="format_indent_decrease" action="outdent" (exec)="execCmd($event)"></app-toolbar-btn>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-btn icon="subscript" action="subscript" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="superscript" action="superscript" (exec)="execCmd($event)"></app-toolbar-btn>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-btn icon="format_list_bulleted" action="insertUnorderedList" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="format_list_numbered" action="insertOrderedList" (exec)="execCmd($event)"></app-toolbar-btn>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-select action="formatBlock" [args]="formatBlockArgs" (exec)="execCmd($event)"></app-toolbar-select>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-select action="fontName" [args]="fontNameArgs" (exec)="execCmd($event)"></app-toolbar-select>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-select action="fontSize" [args]="fontSizeArgs" (exec)="execCmd($event)"></app-toolbar-select>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-btn icon="horizontal_rule" action="insertHorizontalRule" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="insert_photo" action="insertImage" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="videocam" action="insertVideo" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="link" action="createLink" (exec)="execCmd($event)"></app-toolbar-btn>
+            <app-toolbar-btn icon="link_off" action="unlink" (exec)="execCmd($event)"></app-toolbar-btn>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-color icon="format_color_text" action="foreColor" (exec)="execCmd($event)"  value="#000000"></app-toolbar-color>
+            <app-toolbar-color icon="format_color_fill" action="hiliteColor" (exec)="execCmd($event)" value="#FFFFFF"></app-toolbar-color>
+        </div>
+        <div class="toolbar-block">
+            <app-toolbar-btn icon="code" action="toggleSource" (exec)="execCmd($event)"></app-toolbar-btn>
+        </div>
+    </div>
+</div>

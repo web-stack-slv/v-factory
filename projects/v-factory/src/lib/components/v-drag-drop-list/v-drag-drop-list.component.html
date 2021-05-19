@@ -1,0 +1,47 @@
+<mat-card [formGroup]="group">
+    <ng-container  *ngIf="field.label">
+        <mat-card-header>
+            <mat-card-title>{{field.label}}</mat-card-title>    
+        </mat-card-header>
+        <mat-divider></mat-divider>
+    </ng-container>
+    
+    <input type="hidden" [formControlName]="field.name" />
+    
+    <mat-card-content>        
+        <div cdkDropList class="list-wrapper" (cdkDropListDropped)="drop($event)">
+            <div class="list-box" *ngFor="let option of field.options" cdkDrag (dblclick)="field.handler(option)">            
+                <mat-icon *ngIf="option.icon">{{option.icon}}</mat-icon>
+
+                <ng-container *ngIf="field.showAvatar && option.data?.image">
+                    <img class="avatar-img" [src]="option.data.image" [alt]="option.label">
+                </ng-container>
+
+                <strong *ngIf="option.label">{{option.label}}</strong>
+
+                <span *ngIf="option.data?.info">{{option.data?.info}}</span>
+                <span *ngIf="!option.data?.info"></span>
+
+                <span style="flex: 1"></span>
+
+                <ng-container *ngIf="field.removable">
+                    <button
+                        mat-icon-button 
+                        matTooltip="Удалить"
+                        color="warn"
+                        type="button"
+                        (click)="field.removeHandler(option)"
+                        >
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </ng-container>
+
+                <span *ngIf="!field.removable"></span>
+
+                <ng-container *ngIf="field.showPreview && option.data?.image">
+                    <img *cdkDragPreview [src]="option.data.image" [alt]="option.label">
+                </ng-container>            
+            </div>
+        </div>
+    </mat-card-content>    
+</mat-card>

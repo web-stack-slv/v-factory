@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>Dynamic Form</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      <v-v-factory 
+          [formConfig]="formConfig" 
+          [form]="form"
+          (submit)="submit($event)"
+      ></v-v-factory>
+  </mat-card-content>
+</mat-card>

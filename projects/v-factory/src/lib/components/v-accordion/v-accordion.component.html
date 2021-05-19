@@ -1,0 +1,44 @@
+<mat-accordion [formGroup]="group">
+    <ng-container [formArrayName]="field.name">
+        <ng-container *ngFor="let item of field.items; let i = index;" [formGroupName]="i">
+            <mat-expansion-panel [expanded]="field.getStep() === i" (opened)="field.setStep(i)" hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                       <b> Шаг {{i+1}} </b>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    <!--  some title infos -->
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                
+                    <ng-container 
+                        appVField
+                        [field]="item" 
+                        [group]="formArray.controls[i]"
+                        >
+                    </ng-container>
+                
+                <mat-action-row>
+                    <span *ngIf="i === 0"></span>
+                    <button type="button" *ngIf="i !== 0" mat-stroked-button color="accent" (click)="field.prevHandler(i)">
+                        <mat-icon>arrow_back_ios</mat-icon>
+                        Назад
+                    </button>
+                    <button *ngIf="field.removeHandler" type="button" mat-stroked-button color="warn" (click)="field.removeHandler(i)">
+                        <mat-icon>clear</mat-icon>
+                        Удалить
+                    </button>
+                    <button type="button" *ngIf="i !== field.items.length - 1" mat-stroked-button color="accent" (click)="field.nextHandler(i)">
+                        Вперед
+                        <mat-icon>arrow_forward_ios</mat-icon>
+                    </button>
+                    <span *ngIf="i === field.items.length - 1 && field.isDefaultHandler"></span>
+                    <button type="button" *ngIf="i === field.items.length - 1 && !field.isDefaultHandler" mat-stroked-button color="primary" (click)="field.nextHandler(i)">
+                        Добавить
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </ng-container>
+    </ng-container>
+</mat-accordion>

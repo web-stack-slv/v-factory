@@ -1,0 +1,80 @@
+<ng-container [formGroup]="group">
+    <ng-container [ngSwitch]="field.styleType">        
+        <button *ngSwitchCase="'raised'" 
+            mat-raised-button 
+            [color]="field.color"
+            [disabled]="field.type === 'submit' ? !group.valid : field.disabled"
+            [type]="field.type"
+            (click)="field.handler()"
+            >
+            <mat-icon *ngIf="field.icon">{{ field.icon }}</mat-icon>
+            {{ field.text }}
+        </button>        
+        
+        <button *ngSwitchCase="'stroked'" 
+            mat-stroked-button 
+            [color]="field.color" 
+            [disabled]="field.type === 'submit' ? !group.valid : field.disabled"
+            [type]="field.type"
+            (click)="field.handler()"
+            >
+            <mat-icon *ngIf="field.icon">{{ field.icon }}</mat-icon>
+            {{ field.text }}
+        </button>
+
+        <button *ngSwitchCase="'flat'" 
+            mat-flat-button 
+            [color]="field.color" 
+            [disabled]="field.type === 'submit' ? !group.valid : field.disabled"
+            [type]="field.type"
+            (click)="field.handler()"
+            >
+            <mat-icon *ngIf="field.icon">{{ field.icon }}</mat-icon>
+            {{ field.text }}
+        </button>
+
+        <button *ngSwitchCase="'icon'" 
+            mat-icon-button 
+            [matTooltip]="field.text"
+            [color]="field.color"
+            [disabled]="field.type === 'submit' ? !group.valid : field.disabled"
+            [type]="field.type"
+            (click)="field.handler()"
+            >
+            <mat-icon *ngIf="field.icon">{{ field.icon }}</mat-icon>
+        </button>
+
+        <button *ngSwitchCase="'fab'" 
+            mat-fab 
+            [matTooltip]="field.text"
+            [color]="field.color"
+            [disabled]="field.type === 'submit' ? !group.valid : field.disabled"
+            [type]="field.type"
+            (click)="field.handler()"
+            >
+            <mat-icon *ngIf="field.icon">{{ field.icon }}</mat-icon>
+        </button>
+
+        <button *ngSwitchCase="'mini-fab'" 
+            mat-mini-fab 
+            [matTooltip]="field.text"
+            [color]="field.color"
+            [disabled]="field.type === 'submit' ? !group.valid : field.disabled"
+            [type]="field.type"
+            (click)="field.handler()"
+            >
+            <mat-icon *ngIf="field.icon">{{ field.icon }}</mat-icon>
+        </button>
+
+        <button *ngSwitchDefault 
+            mat-button 
+            [color]="field.color"
+            [disabled]="field.type === 'submit' ? !group.valid : field.disabled"
+            [type]="field.type"
+            (click)="field.handler()"
+            >
+            <mat-icon *ngIf="field.icon">{{ field.icon }}</mat-icon>
+            {{ field.text }}
+        </button>
+    </ng-container>
+</ng-container>

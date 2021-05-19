@@ -1,0 +1,18 @@
+<mat-form-field [formGroup]="group">
+    <mat-label *ngIf="field.label">{{field.label}}</mat-label>
+    <input type="text"
+        [formControlName]="field.name"
+        [placeholder]="field.placeholder"
+        matInput 
+        [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.label}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngFor="let validation of field.getValMessage()">
+        <ng-container *ngIf="group.get(field.name).hasError(validation.name) && (group.get(field.name).dirty || group.get(field.name).touched)">
+            {{validation.message}}
+        </ng-container>
+    </mat-error>
+</mat-form-field>

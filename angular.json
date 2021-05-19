@@ -1,0 +1,175 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "v-factory": {
+      "projectType": "library",
+      "root": "projects/v-factory",
+      "sourceRoot": "projects/v-factory/src",
+      "prefix": "v",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/v-factory/tsconfig.lib.json",
+            "project": "projects/v-factory/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/v-factory/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/v-factory/src/test.ts",
+            "tsConfig": "projects/v-factory/tsconfig.spec.json",
+            "karmaConfig": "projects/v-factory/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/v-factory/tsconfig.lib.json",
+              "projects/v-factory/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "v-factory-example": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/v-factory-example",
+      "sourceRoot": "projects/v-factory-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/v-factory-example",
+            "index": "projects/v-factory-example/src/index.html",
+            "main": "projects/v-factory-example/src/main.ts",
+            "polyfills": "projects/v-factory-example/src/polyfills.ts",
+            "tsConfig": "projects/v-factory-example/tsconfig.app.json",
+            "assets": [
+              "projects/v-factory-example/src/favicon.ico",
+              "projects/v-factory-example/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/v-factory-example/src/styles.scss"
+            ],
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/v-factory-example/src/environments/environment.ts",
+                  "with": "projects/v-factory-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "v-factory-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "v-factory-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "v-factory-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/v-factory-example/src/test.ts",
+            "polyfills": "projects/v-factory-example/src/polyfills.ts",
+            "tsConfig": "projects/v-factory-example/tsconfig.spec.json",
+            "karmaConfig": "projects/v-factory-example/karma.conf.js",
+            "assets": [
+              "projects/v-factory-example/src/favicon.ico",
+              "projects/v-factory-example/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/v-factory-example/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/v-factory-example/tsconfig.app.json",
+              "projects/v-factory-example/tsconfig.spec.json",
+              "projects/v-factory-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/v-factory-example/e2e/protractor.conf.js",
+            "devServerTarget": "v-factory-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "v-factory-example:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "v-factory"
+}

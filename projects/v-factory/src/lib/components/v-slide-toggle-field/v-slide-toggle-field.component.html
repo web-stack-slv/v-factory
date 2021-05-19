@@ -1,0 +1,9 @@
+<section  class="slider-toggle-section" [formGroup]="group">
+    <mat-slide-toggle
+          [color]="field.color ? field.color : 'accent'"
+          [disabled]="!!field.disabled"
+          [formControlName]="field.name"
+    >
+        {{field.label}}
+    </mat-slide-toggle>
+</section>

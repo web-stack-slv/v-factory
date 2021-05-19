@@ -1,0 +1,9 @@
+<section class="radio-section" [formGroup]="group">
+    <label *ngIf="field.label">{{field.label}}:</label>
+    <mat-radio-group aria-label="field.label" [formControlName]="field.name">
+        <ng-container *ngFor="let option of field.options">
+            <mat-radio-button [value]="option.value">{{option.label}}</mat-radio-button>
+        </ng-container>        
+    </mat-radio-group>
+</section>
+

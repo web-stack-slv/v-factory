@@ -1,0 +1,29 @@
+<ng-container *ngIf="!!this.field.name"  [formGroup]="group">
+    <label class="box-label" *ngIf="field.label">{{field.label}}</label>
+    <ng-container [formArrayName]="field.name">
+        <ng-container *ngFor="let item of field.items; let i = index;" [formGroupName]="i">
+            <ng-container 
+                appVField
+                [field]="item" 
+                [group]="formArray.controls[i]"
+                >
+            </ng-container>
+        </ng-container>
+    </ng-container>   
+</ng-container>
+
+<ng-container *ngIf="!this.field.name"  [formGroup]="group">
+    <label class="box-label" *ngIf="field.label">{{field.label}}</label>
+    <ng-container *ngFor="let item of field.items">  
+        <ng-container         
+            appVField     
+            [field]="item" 
+            [group]="group"
+            >
+        </ng-container>
+    </ng-container>
+</ng-container>
+
+
+
+
