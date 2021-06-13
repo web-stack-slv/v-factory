@@ -8,6 +8,7 @@ import { VCheckboxFieldComponent } from '../../components/v-checkbox-field/v-che
 import { VChipsFieldComponent } from '../../components/v-chips-field/v-chips-field.component';
 import { VColorFieldComponent } from '../../components/v-color-field/v-color-field.component';
 import { VDatepickerFieldComponent } from '../../components/v-datepicker-field/v-datepicker-field.component';
+import { VDividerComponent } from '../../components/v-divider/v-divider.component';
 import { VDragDropListComponent } from '../../components/v-drag-drop-list/v-drag-drop-list.component';
 import { VEditorFieldComponent } from '../../components/v-editor-field/v-editor-field.component';
 import { VFileFieldComponent } from '../../components/v-file-field/v-file-field.component';
@@ -44,7 +45,8 @@ const componentMapper = {
     vdragdroplist: VDragDropListComponent,
     vcolorfield: VColorFieldComponent,
     veditorfield: VEditorFieldComponent,
-    vfilefield: VFileFieldComponent
+    vfilefield: VFileFieldComponent,
+    vdivider: VDividerComponent
 };
 
 @Directive({

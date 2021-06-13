@@ -21,3 +21,4 @@ export * from './v-drag-drop-list.model';
 export * from './v-color-field.model';
 export * from './v-editor-field.model';
 export * from './v-file-field.model';
+export * from './v-divider.model';

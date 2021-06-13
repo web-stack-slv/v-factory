@@ -80,7 +80,7 @@ formConfig = [
     })
   ];
 ```
-# List of available fields and containers:
+## List of available fields and containers:
     VAccordion,
     VAutocompleteField,
     VBox,
@@ -99,9 +99,34 @@ formConfig = [
     VSelectField,
     VSlideToggleField,
     VSliderField,
-    VTextField
-    VFileField
-    VEditorField
+    VTextField,
+    VFileField,
+    VEditorField,
+    VDivider
+
+## json available types (all above classes in lowercase):
+    vaccordion,
+    vautocompletefield,
+    vbox,
+    vbutton,
+    vcheckboxfield,
+    vchipsfield,
+    vcolorfield,
+    vdatepickerfield,
+    vdragdroplist,
+    vimage,
+    vinputfield,
+    vlabel,
+    vmaskedfield,
+    vnumberfield,
+    vradiofield,
+    vselectfield,
+    vslidetogglefield,
+    vsliderfield,
+    vtextfield,
+    vfilefield,
+    veditorfield,
+    vdivider
 
 ### formConfig can be as array of items or objects like parsed json.
 

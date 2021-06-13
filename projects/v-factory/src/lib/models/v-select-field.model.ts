@@ -6,6 +6,7 @@ export class VSelectField extends VField<string | number> {
     options: Option[] | Observable<Option[]>;
     multiple?: boolean;
     icons?: boolean;
+    hint?: string;
 
     constructor(opts: {
         name: string,
@@ -13,6 +14,8 @@ export class VSelectField extends VField<string | number> {
         label?: string,
         value?: string | number,
         multiple?: boolean,
+        disabled?: boolean,
+        hint?: string,
         validators?: FactoryValidator[],
         icons?: boolean,
         styles?: Style,
@@ -23,5 +26,6 @@ export class VSelectField extends VField<string | number> {
         this.options = opts['options'] || [];
         this.multiple = opts['multiple'] || false;
         this.icons = opts['icons'] || false;
+        this.hint = opts['hint'] || null;
     }
 }

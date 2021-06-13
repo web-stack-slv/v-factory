@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { VDivider } from 'projects/v-factory/src/public-api';
 import {
   VAutocompleteField,
   VButton,
@@ -96,15 +97,16 @@ export class AppComponent {
     label: 'VSelectField',
     name: 'select',
     options: [
-      {value: 1, label: 'First'},
-      {value: 2, label: 'Second'},
-      {value: 3, label: 'Third'},
-      {value: 4, label: 'Forth'},
+      {value: 1, label: 'First', data: {hint: 'First Hint', color: 'red', icon: 'water_drop'}},
+      {value: 2, label: 'Second', data: {hint: 'Second Hint', disabled: true}},
+      {value: 3, label: 'Third', data: {hint: 'Third Hint', color: 'green', icon: 'sailing'}},
+      {value: 4, label: 'Forth', data: {hint: 'Forth Hint'}},
     ]
   }),
   new VLabel({
     text: 'VLabel'
   }),
+  new VDivider({}),
   new VMaskedField({
     name: 'masked',
     label: 'VMaskedField',

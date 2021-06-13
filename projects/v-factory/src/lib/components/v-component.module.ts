@@ -20,6 +20,7 @@ import { VDragDropListModule } from './v-drag-drop-list/v-drag-drop-list.module'
 import { VColorFieldModule } from './v-color-field/v-color-field.module';
 import { VEditorFieldModule } from './v-editor-field/v-editor-field.module';
 import { VFileFieldModule } from './v-file-field/v-file-field.module';
+import { VDividerModule } from './v-divider/v-divider.module';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { VFileFieldModule } from './v-file-field/v-file-field.module';
     VDragDropListModule,
     VColorFieldModule,
     VEditorFieldModule,
-    VFileFieldModule
+    VFileFieldModule,
+    VDividerModule
   ],
   exports: [
     VBoxModule,
@@ -66,7 +68,8 @@ import { VFileFieldModule } from './v-file-field/v-file-field.module';
     VDragDropListModule,
     VColorFieldModule,
     VEditorFieldModule,
-    VFileFieldModule
+    VFileFieldModule,
+    VDividerModule
   ]
 })
 export class VComponentsModule { }

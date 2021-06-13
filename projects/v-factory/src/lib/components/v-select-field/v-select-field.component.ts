@@ -26,4 +26,15 @@ export class VSelectFieldComponent implements OnInit {
     return (this.field.options as Option[]).find(option => option.value === this.value).label || '';
   }
 
+  get hint(): string {
+    return this.value ? (this.field.options as Option[]).find(option => option.value === this.value).data?.hint || '' : '';
+  }
+
+  get color(): string {
+    return this.value ? (this.field.options as Option[]).find(option => option.value === this.value).data?.color || '' : '';
+  }
+
+  get icon(): string {
+    return this.value ? (this.field.options as Option[]).find(option => option.value === this.value).data?.icon || '' : '';
+  }
 }
