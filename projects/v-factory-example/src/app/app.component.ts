@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { VDivider } from 'projects/v-factory/src/public-api';
 import {
   VAutocompleteField,
   VButton,
@@ -17,7 +16,8 @@ import {
   VSelectField,
   VSliderField,
   VSlideToggleField,
-  VTextField
+  VTextField,
+  VDivider
 } from 'v-factory';
 
 @Component({

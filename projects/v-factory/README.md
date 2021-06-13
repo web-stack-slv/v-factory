@@ -4,7 +4,7 @@
 
 ## Start
 
-Angular CLI version 10.2.3.
+Angular CLI version 12.0.4.
 
 need to install angular material:
 

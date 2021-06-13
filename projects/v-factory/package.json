@@ -1,13 +1,13 @@
 {
   "name": "@farawayslv/v-factory",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "author": "farawayslv",
   "license": "MIT",
   "url": "https://github.com/web-stack-slv/v-factory",
   "peerDependencies": {
-    "@angular/common": "^10.0.14",
-    "@angular/core": "^10.0.14",
-    "@angular/material": "^10.2.7"
+    "@angular/common": "^12.0.4",
+    "@angular/core": "^12.0.4",
+    "@angular/material": "^12.0.4"
   },
   "dependencies": {
     "tslib": "^2.0.0"
