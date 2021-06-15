@@ -5,6 +5,7 @@ import { FormGroup, FormArray } from '@angular/forms';
 export class VAccordion extends VItem {
     name: string;
     items: VItem[];
+    getItemTitle?: Function;
     nextHandler?: Function;
     prevHandler?: Function;
     removeHandler?: Function;
@@ -17,6 +18,7 @@ export class VAccordion extends VItem {
       name: string,
       label?: string;
       itemId?: string | number | Symbol,
+      getItemTitle?: Function,
       nextHandler?: Function,
       prevHandler?: Function,
       removeHandler?: Function,
@@ -26,7 +28,13 @@ export class VAccordion extends VItem {
         super(opts);
         this._vtype = 'vaccordion';
         this.name = opts['name'];
-        this.items = opts['items'] || [];  
+        this.items = opts['items'] || [];
+
+        if(opts['getItemTitle']) {
+          this.getItemTitle = opts['getItemTitle']
+      } else {
+          this.getItemTitle = (idx: number) => `Step ${idx+1}`;
+      }
 
         if(opts['nextHandler']) {
             this.nextHandler = opts['nextHandler']
@@ -41,8 +49,8 @@ export class VAccordion extends VItem {
             this.isDefaultHandler = true;
             this.prevHandler = () => { this.prevStep(); }
         }
-                 
-        this.removeHandler = opts['removeHandler'] || null;     
+
+        this.removeHandler = opts['removeHandler'] || null;
     }
 
     createControl(group: FormGroup): void {
@@ -52,7 +60,7 @@ export class VAccordion extends VItem {
             const fg = new FormGroup({});
             fa.push(fg);
             item.createControl(fg);
-        });       
+        });
     }
 
     removeItems(group: FormGroup): void {
@@ -68,7 +76,7 @@ export class VAccordion extends VItem {
                 break;
             } else if (items[i]['items']) {
                 this.findByKey(key, value, items[i]['items']);
-            }            
+            }
         }
         return result;
     }

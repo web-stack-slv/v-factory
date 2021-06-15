@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormArray, FormGroup } from '@angular/forms';
 import {
   VAutocompleteField,
   VButton,
@@ -17,7 +17,9 @@ import {
   VSliderField,
   VSlideToggleField,
   VTextField,
-  VDivider
+  VDivider,
+  VAccordion,
+  VBox
 } from 'v-factory';
 
 @Component({
@@ -29,6 +31,10 @@ export class AppComponent {
   title = 'v-factory-example';
 
   form: FormGroup;
+
+  get documents(): FormArray {
+    return this.form.get('documents') as FormArray;
+  }
 
   formConfig = [
     new VInputField({
@@ -148,6 +154,73 @@ export class AppComponent {
     name: 'editor',
     label: 'Editor'
   }),
+  new VAccordion({
+    name:'documents',
+    label: 'Documents',
+    getItemTitle: (idx) => this._getItemTitle(idx),
+    items: [
+      new VBox({
+        items: [
+          new VInputField({
+            label: 'Title',
+            name: 'docTitle',
+            validators: [{
+              required: true,
+              message: 'Field is required'
+            },{
+              maxlength: 100,
+              message: 'Max length 100 chars'
+            }]
+          }),
+          new VTextField({
+            name: 'docDescription',
+            label: 'Description'
+          }),
+          new VFileField({
+            name: 'file',
+            label: 'FileField',
+            validators: [{
+              fileExt: ['mp3', 'png', 'jpg'],
+              message: 'Invalid file extension'
+            },{
+              fileSize: 2000000,
+              message: 'Max file size 2M'
+            }]
+          })
+        ]
+      }),
+      new VBox({
+        items: [
+          new VInputField({
+            label: 'Title',
+            name: 'docTitle',
+            validators: [{
+              required: true,
+              message: 'Field is required'
+            },{
+              maxlength: 100,
+              message: 'Max length 100 chars'
+            }]
+          }),
+          new VTextField({
+            name: 'docDescription',
+            label: 'Description'
+          }),
+          new VFileField({
+            name: 'file',
+            label: 'FileField',
+            validators: [{
+              fileExt: ['mp3', 'png', 'jpg'],
+              message: 'Invalid file extension'
+            },{
+              fileSize: 2000000,
+              message: 'Max file size 2M'
+            }]
+          })
+        ]
+      })
+      ]
+  }),
   new VButton({
     text: 'Save',
     styleType: 'raised',
@@ -165,5 +238,10 @@ export class AppComponent {
 
   submit(form: FormGroup) {
     console.log(form);
+  }
+
+  private _getItemTitle(idx: number) {
+    const itemGroup = this.documents.controls[idx];
+    return itemGroup.get('docTitle').value || `Document ${idx + 1}`;
   }
 }

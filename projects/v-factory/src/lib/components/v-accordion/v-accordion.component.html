@@ -4,20 +4,20 @@
             <mat-expansion-panel [expanded]="field.getStep() === i" (opened)="field.setStep(i)" hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                       <b> Шаг {{i+1}} </b>
+                       <b> {{field.getItemTitle(i)}} </b>
                     </mat-panel-title>
                     <mat-panel-description>
                     <!--  some title infos -->
                     </mat-panel-description>
                 </mat-expansion-panel-header>
-                
-                    <ng-container 
+
+                    <ng-container
                         appVField
-                        [field]="item" 
+                        [field]="item"
                         [group]="formArray.controls[i]"
                         >
                     </ng-container>
-                
+
                 <mat-action-row>
                     <span *ngIf="i === 0"></span>
                     <button type="button" *ngIf="i !== 0" mat-stroked-button color="accent" (click)="field.prevHandler(i)">
