@@ -5,6 +5,7 @@ export interface Option {
       hint?: string,
       color?: string,
       icon?: string,
+      info?: string,
       disabled?: boolean,
       item?: any
     };

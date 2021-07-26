@@ -15,6 +15,7 @@ import { VFileFieldComponent } from '../../components/v-file-field/v-file-field.
 import { VImageComponent } from '../../components/v-image/v-image.component';
 import { VInputFieldComponent } from '../../components/v-input-field/v-input-field.component';
 import { VLabelComponent } from '../../components/v-label/v-label.component';
+import { VListComponent } from '../../components/v-list/v-list.component';
 import { VMaskedFieldComponent } from '../../components/v-masked-field/v-masked-field.component';
 import { VNumberFieldComponent } from '../../components/v-number-field/v-number-field.component';
 import { VRadioFieldComponent } from '../../components/v-radio-field/v-radio-field.component';
@@ -46,7 +47,8 @@ const componentMapper = {
     vcolorfield: VColorFieldComponent,
     veditorfield: VEditorFieldComponent,
     vfilefield: VFileFieldComponent,
-    vdivider: VDividerComponent
+    vdivider: VDividerComponent,
+    vlist: VListComponent
 };
 
 @Directive({

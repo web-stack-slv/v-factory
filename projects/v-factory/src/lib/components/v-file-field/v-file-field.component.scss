@@ -11,8 +11,9 @@
   visibility: hidden;
 }
 
-.custom-error {
-  color:red;
-  font-size: 0.8rem;
-  width: 100%;
+::ng-deep .custom-error {
+  display: flex;
+  justify-content: flex-start;
+  color:#f44336;
+  font-size: 0.7rem;
 }

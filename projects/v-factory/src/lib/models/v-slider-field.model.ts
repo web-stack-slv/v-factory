@@ -1,3 +1,4 @@
+import { Style } from "../interfaces";
 import { VField } from "./v-field.model";
 
 export class VSliderField extends VField<number> {
@@ -15,6 +16,7 @@ export class VSliderField extends VField<number> {
         name: string,
         disabled?: boolean,
         label?: string,
+        value?: number,
         showTicks?: boolean,
         autoTicks?: boolean,
         tickInterval?: number | 'auto',
@@ -23,7 +25,9 @@ export class VSliderField extends VField<number> {
         max?: number,
         step?: number,
         thumbLabel?: boolean,
-        vertical?: boolean
+        vertical?: boolean,
+        styles?: Style,
+        cls?: string
     }) {
         super(opts);
         this._vtype = 'vsliderfield';

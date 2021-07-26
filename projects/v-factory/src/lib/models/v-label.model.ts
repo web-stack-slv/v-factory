@@ -5,18 +5,19 @@ import { ThemePalette } from '@angular/material/core';
 export class VLabel extends VItem {
     text?: string;
     icon?: string;
-    color?: ThemePalette;  
+    color?: ThemePalette;
 
   constructor(opts: {
       text?: string,
       icon?: string,
       itemId?: string,
+      hidden?: boolean,
       color?: ThemePalette,
       styles?: Style,
       cls?:string
     }) {
         super(opts);
-        this._vtype = 'vlabel'; 
+        this._vtype = 'vlabel';
         this.text = opts['text'] || '';
         this.icon = opts['icon'] || null;
         this.color = opts['color'] || 'accent';

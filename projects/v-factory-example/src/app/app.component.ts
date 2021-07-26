@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
+import { VList } from 'projects/v-factory/src/public-api';
 import {
   VAutocompleteField,
   VButton,
@@ -127,9 +128,26 @@ export class AppComponent {
       {value: 3, label: 'Third'}
     ]
   }),
-  new VSliderField({
-    name: 'slide',
-    label: 'VSliderField'
+  new VBox({
+    layout: 'row',
+    name: 'form-box',
+    formMode: 'group',
+    items:[
+      new VSliderField({
+        name: 'slide1',
+        label: 'VSliderField1',
+        styles: {
+          flex: 1
+        }
+      }),
+      new VSliderField({
+        name: 'slide2',
+        label: 'VSliderField2',
+        styles: {
+          flex: 1
+        }
+      })
+    ]
   }),
   new VTextField({
     name: 'text',
@@ -165,9 +183,6 @@ export class AppComponent {
             label: 'Title',
             name: 'docTitle',
             validators: [{
-              required: true,
-              message: 'Field is required'
-            },{
               maxlength: 100,
               message: 'Max length 100 chars'
             }]
@@ -195,9 +210,6 @@ export class AppComponent {
             label: 'Title',
             name: 'docTitle',
             validators: [{
-              required: true,
-              message: 'Field is required'
-            },{
               maxlength: 100,
               message: 'Max length 100 chars'
             }]
@@ -221,6 +233,17 @@ export class AppComponent {
       })
       ]
   }),
+  new VList({
+    label: 'VList',
+    editHandler: (idx) =>this.editHandler(idx),
+    deleteHandler: (idx) =>this.deleteHandler(idx),
+    options: [
+      {value: 1, label: 'John', data: { info: 'CEO  phone.(050)666-66-66' }},
+      {value: 2, label: 'Cara', data: { info: 'Manager  phone.(050)666-66-66' }},
+      {value: 3, label: 'Mario', data: { info: 'Assistant  phone.(050)666-66-66' }},
+      {value: 4, label: 'Benny', data: { info: 'Manager  phone.(050)666-66-66' }},
+    ]
+  }),
   new VButton({
     text: 'Save',
     styleType: 'raised',
@@ -243,5 +266,14 @@ export class AppComponent {
   private _getItemTitle(idx: number) {
     const itemGroup = this.documents.controls[idx];
     return itemGroup.get('docTitle').value || `Document ${idx + 1}`;
+  }
+
+
+  editHandler(idx: any): void {
+    console.log(idx);
+  }
+
+  deleteHandler(idx: any): void {
+    console.log(idx);
   }
 }

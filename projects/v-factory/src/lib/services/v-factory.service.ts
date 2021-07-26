@@ -16,6 +16,7 @@ import {
     VInputField,
     VItem,
     VLabel,
+    VList,
     VMaskedField,
     VNumberField,
     VRadioField,
@@ -91,6 +92,8 @@ export class VFactoryService {
           return new VFileField({...item});
         case 'veditorfield':
           return new VEditorField({...item});
+        case 'vlist':
+          return new VList({...item});
         default:
             return null;
     }

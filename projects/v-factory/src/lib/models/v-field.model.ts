@@ -1,12 +1,14 @@
 import { VItem } from "./v-item.model";
 import { Style, FactoryValidator, ValidatorMessage } from '../interfaces';
-import { FormGroup, Validators, FormControl, Validator } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { validateFileExt } from "../utils/file-ext.validator";
+import { validateFileSize } from "../utils/file-size.validator";
 
 export class VField<T> extends VItem {
 
     private validatorMessages: ValidatorMessage[] = [];
-    
-    name: string;    
+
+    name: string;
     label?: string;
     value?: T;
     disabled?: boolean;
@@ -25,7 +27,7 @@ export class VField<T> extends VItem {
     }) {
         super(opts);
         this._vtype = 'vfield';
-        this.name = opts['name'] || '';        
+        this.name = opts['name'] || '';
         this.label = opts['label'] || null;
         this.value = opts['value'] || null;
         this.disabled = opts['disabled'] || false;
@@ -37,17 +39,17 @@ export class VField<T> extends VItem {
         const control = new FormControl(
             this.value,
             this._bindValidations()
-          ); 
+          );
         group.addControl(this.name, control);
     }
 
-    private _bindValidations(): Validators | null {   
+    private _bindValidations(): Validators | null {
         if (this.validators.length > 0) {
-            const validations = [];            
-            this.validators.map(item => {                
-                const validatorCfg = this._getValidatorConfig(item);          
+            const validations = [];
+            this.validators.map(item => {
+                const validatorCfg = this._getValidatorConfig(item);
                 const { name, validator, message } = validatorCfg;
-                validations.push(validator);         
+                validations.push(validator);
                 this.validatorMessages.push({ name, message });
             })
 
@@ -72,7 +74,7 @@ export class VField<T> extends VItem {
                     result.name = k;
                     if(!result.validator) {
                         result.validator = this._getValidatorByName(k,v);
-                    }                    
+                    }
                     break;
             }
         });
@@ -87,7 +89,7 @@ export class VField<T> extends VItem {
         group.removeControl(this.name);
     }
 
-    private _getValidatorByName(name: string, value?: number | string): any {
+    private _getValidatorByName(name: string, value?: number | string | string[]): any {
         switch (name) {
             case 'required':
                 return Validators.required;
@@ -103,6 +105,10 @@ export class VField<T> extends VItem {
                 return Validators.max(value? +value : 100)
             case 'pattern':
                 return Validators.pattern(value? new RegExp(`${value}`) : '');
+            case 'fileExt':
+                return (control: FormControl) => validateFileExt(control, value as string[]);
+            case 'fileSize':
+                return (control: FormControl) => validateFileSize(control, +value);
             default:
                 return null;
         }

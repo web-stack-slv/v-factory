@@ -1,0 +1,27 @@
+<ng-container>
+  <ng-container>
+    <mat-selection-list [multiple]="field.multiple">
+      <mat-list-option *ngFor="let option of field.options" [value]="option.value">
+        <mat-icon mat-list-icon *ngIf="option.data?.icon">{{option.data?.icon}}</mat-icon>
+        <div mat-line>{{option.label}}</div>
+        <div mat-line *ngIf="option.data?.info"> {{option.data?.info}} </div>
+        <mat-icon
+          mat-list-icon
+          (click)="field.editHandler(option.value)"
+          *ngIf="field.editHandler"
+          matTooltip="Редактировать"
+          >
+          edit_note
+        </mat-icon>
+        <mat-icon
+          mat-list-icon
+          (click)="field.deleteHandler(option.value)"
+          *ngIf="field.deleteHandler"
+          matTooltip="Удалить"
+          >
+          delete
+        </mat-icon>
+      </mat-list-option>
+    </mat-selection-list>
+  </ng-container>
+</ng-container>

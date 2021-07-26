@@ -11,4 +11,5 @@ export interface FactoryValidator {
   message?: string;
   fileExt?: string[];
   fileSize?: number;
+  custom?: boolean;
 }

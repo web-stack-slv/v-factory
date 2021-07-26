@@ -1,15 +1,19 @@
 <ng-container [formGroup]="group">
-    <p>{{field.label}}</p>  
+    <div class="label-wrapper">
+      <label class="start-label">{{field.label}}</label>
+      <label class="end-label">{{this.group.get(field.name).value}}</label>
+    </div>
     <mat-slider
         [disabled]="this.field.disabled"
         [invert]="this.field.invert"
-        [min]="this.field.min" 
-        [max]="this.field.max" 
+        [min]="this.field.min"
+        [max]="this.field.max"
         [step]="this.field.step"
         [thumbLabel]="this.field.thumbLabel"
         [tickInterval]="getSliderTickInterval()"
         [vertical]="this.field.vertical"
         [formControlName]="field.name"
+        [value]="field.value"
     >
     </mat-slider>
 </ng-container>
