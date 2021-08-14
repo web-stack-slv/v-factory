@@ -40,6 +40,9 @@ export class VField<T> extends VItem {
             this.value,
             this._bindValidations()
           );
+        if(this.disabled) {
+          control.disable();
+        }
         group.addControl(this.name, control);
     }
 

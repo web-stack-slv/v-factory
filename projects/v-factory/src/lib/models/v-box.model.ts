@@ -29,7 +29,7 @@ export class VBox extends VItem {
         this.name = opts['name'] || null;
         this.groupValidators = opts['groupValidators'] || null;
         if(this.layout !== '') {
-            this.cls += ` ${this.layout}`;
+            this.cls = this.cls ? `${this.cls} ${this.layout}` : this.layout;
         }
     }
 

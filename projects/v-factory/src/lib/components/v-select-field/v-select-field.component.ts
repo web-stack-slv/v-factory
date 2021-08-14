@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Option } from '../../interfaces';
 import { VSelectField } from '../../models';
 
@@ -10,12 +11,17 @@ import { VSelectField } from '../../models';
 })
 export class VSelectFieldComponent implements OnInit {
 
+  isAsyncSource = false;
+
   field: VSelectField;
   group: FormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
+    if(this.field.options instanceof Observable) {
+      this.isAsyncSource = true;
+    }
   }
 
   get value(): string {
@@ -23,18 +29,18 @@ export class VSelectFieldComponent implements OnInit {
   }
 
   get label(): string {
-    return (this.field.options as Option[]).find(option => option.value === this.value).label || '';
+    return !this.isAsyncSource ? (this.field.options as Option[]).find(option => option.value === this.value).label || '' : '';
   }
 
   get hint(): string {
-    return this.value ? (this.field.options as Option[]).find(option => option.value === this.value).data?.hint || '' : '';
+    return this.value && !this.isAsyncSource ? (this.field.options as Option[]).find(option => option.value === this.value).data?.hint || '' : '';
   }
 
   get color(): string {
-    return this.value ? (this.field.options as Option[]).find(option => option.value === this.value).data?.color || '' : '';
+    return this.value && !this.isAsyncSource ? (this.field.options as Option[]).find(option => option.value === this.value).data?.color || '' : '';
   }
 
   get icon(): string {
-    return this.value ? (this.field.options as Option[]).find(option => option.value === this.value).data?.icon || '' : '';
+    return this.value && !this.isAsyncSource ? (this.field.options as Option[]).find(option => option.value === this.value).data?.icon || '' : '';
   }
 }

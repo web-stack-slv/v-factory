@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormArray, FormGroup } from '@angular/forms';
 import { VList } from 'projects/v-factory/src/public-api';
+import { from, Observable } from 'rxjs';
+import { first } from 'rxjs/operators';
 import {
   VAutocompleteField,
   VButton,
@@ -20,7 +22,8 @@ import {
   VTextField,
   VDivider,
   VAccordion,
-  VBox
+  VBox,
+  Option
 } from 'v-factory';
 
 @Component({
@@ -90,7 +93,8 @@ export class AppComponent {
     }),
     new VCheckboxField({
       name: 'check',
-      label: 'VCheckboxField'
+      label: 'VCheckboxField',
+      disabled: true
     }),
     new VColorField({
       name: 'color',
@@ -103,12 +107,8 @@ export class AppComponent {
   new VSelectField({
     label: 'VSelectField',
     name: 'select',
-    options: [
-      {value: 1, label: 'First', data: {hint: 'First Hint', color: 'red', icon: 'water_drop'}},
-      {value: 2, label: 'Second', data: {hint: 'Second Hint', disabled: true}},
-      {value: 3, label: 'Third', data: {hint: 'Third Hint', color: 'green', icon: 'sailing'}},
-      {value: 4, label: 'Forth', data: {hint: 'Forth Hint'}},
-    ]
+    cls: 'hello',
+    options: this._getOptions()
   }),
   new VLabel({
     text: 'VLabel'
@@ -155,7 +155,8 @@ export class AppComponent {
   }),
   new VSlideToggleField({
     name: 'slider',
-    label: 'VSlideToggleField'
+    label: 'VSlideToggleField',
+    disabled: true
   }),
   new VFileField({
     name: 'file',
@@ -275,5 +276,14 @@ export class AppComponent {
 
   deleteHandler(idx: any): void {
     console.log(idx);
+  }
+
+  private _getOptions(): Observable<Option[]>{
+    return from([[
+      {value: 1, label: 'First', data: {hint: 'First Hint', color: 'red', icon: 'water_drop'}},
+      {value: 2, label: 'Second', data: {hint: 'Second Hint', disabled: true}},
+      {value: 3, label: 'Third', data: {hint: 'Third Hint', color: 'green', icon: 'sailing'}},
+      {value: 4, label: 'Forth', data: {hint: 'Forth Hint'}},
+    ]]).pipe(first());
   }
 }

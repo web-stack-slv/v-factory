@@ -88,7 +88,7 @@ export class VFieldDirective implements OnInit {
 
     if (this.field.cls) {
       this.field.cls.split(' ').map(cls => {
-        if(cls.trim() !== '') {
+        if(cls && cls.trim() !== '') {
           element.classList.add(cls);
         }
       });

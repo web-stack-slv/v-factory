@@ -25,7 +25,7 @@ export class VItem {
         this.validators = opts['validators'] || [];
         this.label = opts['label'] || null;
         if(opts['cls']) {
-            this.cls += opts['cls'] ? ` ${opts['cls']}` : '';
+            this.cls = opts['cls'] ? this.cls ? `${this.cls} ${opts['cls']}` : opts['cls'] : '';
         }
 
         if(opts['hidden']) {
@@ -46,6 +46,6 @@ export class VItem {
     }
 
     createControl(group: FormGroup): void {}
-    
+
     removeControl(group: FormGroup): void {}
 }
