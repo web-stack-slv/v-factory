@@ -1,6 +1,5 @@
 import { VField } from "./v-field.model";
 import { Style, FactoryValidator } from '../interfaces';
-import { ThemePalette } from "@angular/material/core";
 
 export class VFileField extends VField<any> {
     constructor(opts: {
