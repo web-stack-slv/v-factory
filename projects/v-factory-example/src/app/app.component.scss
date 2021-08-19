@@ -1,17 +1,58 @@
-mat-card {
-    padding: 0;
-    width: 50%;
-    margin: 2% 25%;
+.sidenav-container {
+    height: 100%;
 }
 
-mat-card-header {
-    padding: 7px;
-    border-radius: 5px 5px 0 0;
-    background: #f8a73f;
-    color: #3e2723;
+.sidenav {
+    width: 300px;
+    border: none;
+    box-shadow: 3px 0 6px rgba(0,0,0,.24);
 }
 
-mat-card-content {
-    padding: 5px 10px;
-    margin-top: 15px;  
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.mat-nav-list {
+    width: 100%;
+    a {
+        .mat-icon {
+            margin-right: 10px;
+        }
+        display: block;
+    }
+}
+
+.content-wrapper {
+    padding: 10px;
+    height: 100vh;
+}
+
+
+.mat-list-base .mat-list-item {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.mat-list-base {
+    padding-top: 0px;
+}
+
+.active {
+    background-color: rgb(207, 204, 204);
+}
+
+
+.logo-toolbar-link {
+    text-decoration: none;
+}
+
+.lock-icon, .sidenav-icon {
+    color: grey;
+}
+
+.action-btn {
+    margin: 0 15px;
 }

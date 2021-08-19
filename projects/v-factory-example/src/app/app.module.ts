@@ -1,10 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { VFactoryModule } from 'v-factory';
+
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { AppRoutingModule } from './app-routing.module';
+import { SimpleFormModule } from './simple-form/simple-form.module';
+import { AsyncFormModule } from './async-form/async-form.module';
+import { FileFormModule } from './file-form/file-form.module';
+import { JsonFormModule } from './json-form/json-form.module';
 
 @NgModule({
   declarations: [
@@ -12,9 +24,20 @@ import { MatCardModule } from '@angular/material/card';
   ],
   imports: [
     BrowserModule,
-    VFactoryModule,
     BrowserAnimationsModule,
-    MatCardModule
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule,
+    RouterModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule,
+    AppRoutingModule,
+    SimpleFormModule,
+    AsyncFormModule,
+    FileFormModule,
+    JsonFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,56 @@
-<mat-card>
-  <mat-card-header>
-      <mat-card-title>Dynamic Form</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-      <v-v-factory 
-          [formConfig]="formConfig" 
-          [form]="form"
-          (submit)="submit($event)"
-      ></v-v-factory>
-  </mat-card-content>
-</mat-card>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+        <a class="logo-toolbar-link" [routerLink]="['']">
+          <mat-toolbar color="primary">
+            <mat-icon>settings</mat-icon>
+            <span>V-FACTORY</span>
+          </mat-toolbar>
+        </a>
+    <mat-nav-list>
+        <mat-list>
+            <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['simple']">
+                <mat-icon class="sidenav-icon">pan_tool</mat-icon>
+                Simple Form
+            </a>
+        </mat-list>
+        <mat-list>
+            <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['file']">
+                <mat-icon class="sidenav-icon">folder</mat-icon>
+                File Form
+            </a>
+        </mat-list>
+        <mat-list>
+            <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['async']">
+                <mat-icon class="sidenav-icon">emoji_food_beverage</mat-icon>
+                Async Form
+            </a>
+        </mat-list>
+        <mat-list>
+            <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['json']">
+                <mat-icon class="sidenav-icon">emoji_symbols</mat-icon>
+                JSON Form
+            </a>
+        </mat-list>
+    </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar class='top-toolbar' color="primary">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          matTooltip="Show/Hide Menu"
+          (click)="toggle()"
+          >
+          <mat-icon>{{iconName}}</mat-icon>
+        </button>
+        <span class="spacer"></span>
+      </mat-toolbar>
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
