@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FileFormComponent } from './file-form.component';
+import { ExpandedFormComponent } from './expanded-form.component';
 import { BaseFormModule } from '../base-form/base-form.module';
 
 
 @NgModule({
-  declarations: [FileFormComponent],
+  declarations: [ExpandedFormComponent],
   imports: [
     CommonModule,
     BaseFormModule
   ],
-  exports: [FileFormComponent]
+  exports: [ExpandedFormComponent]
 })
-export class FileFormModule { }
+export class ExpandedFormModule { }

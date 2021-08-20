@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JsonFormComponent } from './json-form.component';
-import { VFactoryModule } from 'v-factory';
-import { MatCardModule } from '@angular/material/card';
-
+import { BaseFormModule } from '../base-form/base-form.module';
 
 @NgModule({
   declarations: [JsonFormComponent],
   imports: [
     CommonModule,
-    VFactoryModule,
-    MatCardModule
+    BaseFormModule
   ],
   exports: [JsonFormComponent]
 })

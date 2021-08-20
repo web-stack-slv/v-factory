@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { VItem } from 'dist/v-factory/public-api';
 
 @Component({
   selector: 'app-base-form',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseFormComponent implements OnInit {
 
-  constructor() { }
+  title = 'Dynamic Form';
+  form: FormGroup = new FormGroup({});
+  formConfig: VItem[] = [];
+
+  constructor() {}
 
   ngOnInit(): void {
   }
 
+  submit(form: FormGroup) {
+    console.log(form.value);
+  }
 }

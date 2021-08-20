@@ -14,9 +14,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AppRoutingModule } from './app-routing.module';
 import { SimpleFormModule } from './simple-form/simple-form.module';
-import { AsyncFormModule } from './async-form/async-form.module';
 import { FileFormModule } from './file-form/file-form.module';
 import { JsonFormModule } from './json-form/json-form.module';
+import { BoxesFormModule } from './boxes-form/boxes-form.module';
+import { ExpandedFormModule } from './expanded-form/expanded-form.module';
+import { ListFormModule } from './list-form/list-form.module';
 
 @NgModule({
   declarations: [
@@ -35,9 +37,11 @@ import { JsonFormModule } from './json-form/json-form.module';
     MatTooltipModule,
     AppRoutingModule,
     SimpleFormModule,
-    AsyncFormModule,
     FileFormModule,
-    JsonFormModule
+    JsonFormModule,
+    BoxesFormModule,
+    ExpandedFormModule,
+    ListFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

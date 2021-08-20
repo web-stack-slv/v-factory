@@ -3,7 +3,7 @@
     [formGroup]="form"
     (submit)="onSubmit($event)"
 >
-<ng-container *ngFor="let item of formConfig">    
+<ng-container *ngFor="let item of formConfig$ | async">    
         <ng-container 
             appVField 
             [field]="item" 

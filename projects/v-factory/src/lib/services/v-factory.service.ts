@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import {
     VAccordion,
@@ -99,7 +100,14 @@ export class VFactoryService {
     }
   }
 
-  updateConfig(formCfg: VItem[]): void {
+  updateConfig(formCfg: VItem[], form: FormGroup): void {
       this._configSubject.next(formCfg);
+      this._createControls(form);
+  }
+
+  private _createControls(group: FormGroup) {
+    this._configSubject.value.forEach(item => {
+      item.createControl(group);      
+    });
   }
 }

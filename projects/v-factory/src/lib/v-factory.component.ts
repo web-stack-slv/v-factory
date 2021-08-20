@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { VItem } from './models/v-item.model';
 import { VFactoryService } from './services/v-factory.service';
 
@@ -15,14 +16,12 @@ export class VFactoryComponent implements OnInit {
 
   @Output() submit: EventEmitter<any> = new EventEmitter<any>();
 
+  formConfig$: Observable<VItem[]>;
+
   constructor(
     private _factoryService: VFactoryService
-  ) { 
-    this._factoryService.configEvent
-      .subscribe(res => {
-        this.formConfig = res;
-        this._createControls(this.form)
-      });
+  ) {
+    this.formConfig$ = this._factoryService.configEvent;
   }
 
   get value() {
@@ -30,13 +29,7 @@ export class VFactoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._createControls(this.form);    
-  }
-
-  private _createControls(group: FormGroup) {
-    this.formConfig.forEach(item => {
-      item.createControl(group);      
-    });
+    this._factoryService.updateConfig(this.formConfig, this.form);
   }
 
   onSubmit(event: Event) {

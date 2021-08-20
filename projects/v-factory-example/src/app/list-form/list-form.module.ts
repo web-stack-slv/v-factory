@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FileFormComponent } from './file-form.component';
+import { ListFormComponent } from './list-form.component';
 import { BaseFormModule } from '../base-form/base-form.module';
 
 
 @NgModule({
-  declarations: [FileFormComponent],
+  declarations: [ListFormComponent],
   imports: [
     CommonModule,
     BaseFormModule
   ],
-  exports: [FileFormComponent]
+  exports: [ListFormComponent]
 })
-export class FileFormModule { }
+export class ListFormModule { }
