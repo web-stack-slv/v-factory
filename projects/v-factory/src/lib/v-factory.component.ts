@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { VItem } from './models/v-item.model';
@@ -9,7 +9,7 @@ import { VFactoryService } from './services/v-factory.service';
   templateUrl: './v-factory.component.html',
   styleUrls: ['./v-factory.component.scss']
 })
-export class VFactoryComponent implements OnInit {
+export class VFactoryComponent implements OnInit, OnDestroy {
 
   @Input() formConfig: VItem[] = [];
   @Input() form: FormGroup;
@@ -38,5 +38,9 @@ export class VFactoryComponent implements OnInit {
     if (this.form.valid) {
       this.submit.emit(this.form);
     }
+  }
+
+  ngOnDestroy(): void {
+    this._factoryService.clearConfig();
   }
 }

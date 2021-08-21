@@ -19,6 +19,7 @@ import { JsonFormModule } from './json-form/json-form.module';
 import { BoxesFormModule } from './boxes-form/boxes-form.module';
 import { ExpandedFormModule } from './expanded-form/expanded-form.module';
 import { ListFormModule } from './list-form/list-form.module';
+import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ListFormModule } from './list-form/list-form.module';
     JsonFormModule,
     BoxesFormModule,
     ExpandedFormModule,
-    ListFormModule
+    ListFormModule,
+    DynamicFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

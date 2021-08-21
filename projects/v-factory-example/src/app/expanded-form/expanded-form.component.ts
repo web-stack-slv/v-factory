@@ -10,7 +10,7 @@ import { FormArray } from '@angular/forms';
 })
 export class ExpandedFormComponent extends BaseFormComponent {
 
-  title = 'EXPANDED FORM';
+  title = 'EXPANDED FORM (extended BaseForm)';
 
   get documents(): FormArray {
     return this.form.get('documents') as FormArray;

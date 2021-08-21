@@ -9,7 +9,7 @@ import { VBox, VSliderField, VInputField, VDivider, VDatepickerField, VEditorFie
 })
 export class BoxesFormComponent extends BaseFormComponent {
 
-  title = 'FORM WITH BOXES';
+  title = 'FORM WITH BOXES (extended BaseForm)';
 
   formConfig = [
     new VBox({

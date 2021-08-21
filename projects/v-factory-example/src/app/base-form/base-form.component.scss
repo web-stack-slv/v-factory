@@ -1,0 +1,20 @@
+::ng-deep .end-label {
+    border: 2px solid #4782ff;
+    width: 25px;
+    border-radius: 10px;
+    padding: 0 7px;
+    margin-right: 20px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+::ng-deep .start-label {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+::ng-deep .label-wrapper {
+    display: flex;
+    justify-content: space-between;
+}

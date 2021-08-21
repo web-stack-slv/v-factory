@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { BaseFormComponent } from '../base-form/base-form.component';
-import { VList, VTextField, VButton, VLabel, VDragDropList } from 'v-factory';
-import { Option } from 'projects/v-factory/src/public-api';
+import { VList, VTextField, VButton, VLabel, VDragDropList, Option } from 'v-factory';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -11,7 +10,7 @@ import { FormControl } from '@angular/forms';
 })
 export class ListFormComponent extends BaseFormComponent {
 
-  title = 'FORM WITH LIST';
+  title = 'FORM WITH LIST (extended BaseForm)';
 
   formConfig = [
     new VTextField({

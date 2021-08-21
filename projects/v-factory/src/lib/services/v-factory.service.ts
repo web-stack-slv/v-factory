@@ -110,4 +110,8 @@ export class VFactoryService {
       item.createControl(group);      
     });
   }
+
+  clearConfig(): void {
+    this._configSubject.next([]);
+  }
 }

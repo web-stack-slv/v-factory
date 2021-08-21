@@ -22,19 +22,19 @@
                     <span *ngIf="i === 0"></span>
                     <button type="button" *ngIf="i !== 0" mat-stroked-button color="accent" (click)="field.prevHandler(i)">
                         <mat-icon>arrow_back_ios</mat-icon>
-                        Назад
+                        Backward
                     </button>
                     <button *ngIf="field.removeHandler" type="button" mat-stroked-button color="warn" (click)="field.removeHandler(i)">
                         <mat-icon>clear</mat-icon>
-                        Удалить
+                        Remove
                     </button>
                     <button type="button" *ngIf="i !== field.items.length - 1" mat-stroked-button color="accent" (click)="field.nextHandler(i)">
-                        Вперед
+                        Forward
                         <mat-icon>arrow_forward_ios</mat-icon>
                     </button>
                     <span *ngIf="i === field.items.length - 1 && field.isDefaultHandler"></span>
                     <button type="button" *ngIf="i === field.items.length - 1 && !field.isDefaultHandler" mat-stroked-button color="primary" (click)="field.nextHandler(i)">
-                        Добавить
+                        Add
                         <mat-icon>add</mat-icon>
                     </button>
                 </mat-action-row>

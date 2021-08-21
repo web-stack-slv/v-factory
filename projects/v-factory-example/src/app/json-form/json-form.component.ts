@@ -9,7 +9,7 @@ import { BaseFormComponent } from '../base-form/base-form.component';
 })
 export class JsonFormComponent extends BaseFormComponent {
 
-  title = 'FORM FROM JSON CONFIG';
+  title = 'FORM FROM JSON CONFIG (extended BaseForm, delay 3 sec)';
 
   jsonCfg = [
     {
