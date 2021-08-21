@@ -20,6 +20,7 @@ import { BoxesFormModule } from './boxes-form/boxes-form.module';
 import { ExpandedFormModule } from './expanded-form/expanded-form.module';
 import { ListFormModule } from './list-form/list-form.module';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
+import { ContentFormModule } from './content-form/content-form.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
     BoxesFormModule,
     ExpandedFormModule,
     ListFormModule,
-    DynamicFormModule
+    DynamicFormModule,
+    ContentFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

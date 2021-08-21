@@ -51,7 +51,13 @@
               <mat-icon class="sidenav-icon">dynamic_form</mat-icon>
               Dynamic Form
           </a>
-      </mat-list>
+        </mat-list>
+        <mat-list>
+          <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['content']">
+              <mat-icon class="sidenav-icon">content_copy</mat-icon>
+              Content Form
+          </a>
+        </mat-list>
     </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

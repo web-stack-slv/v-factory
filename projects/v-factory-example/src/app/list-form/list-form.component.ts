@@ -50,7 +50,7 @@ export class ListFormComponent extends BaseFormComponent {
       }
     }),
     new VButton({
-      text: 'Save',
+      text: 'SUBMIT',
       styleType: 'raised',
       type: 'submit'
     })

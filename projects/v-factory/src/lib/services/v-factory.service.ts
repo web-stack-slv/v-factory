@@ -9,6 +9,7 @@ import {
     VCheckboxField,
     VChipsField,
     VColorField,
+    VContent,
     VDatepickerField,
     VDragDropList,
     VEditorField,
@@ -95,6 +96,8 @@ export class VFactoryService {
           return new VEditorField({...item});
         case 'vlist':
           return new VList({...item});
+        case 'vcontent':
+        return new VContent({...item});
         default:
             return null;
     }

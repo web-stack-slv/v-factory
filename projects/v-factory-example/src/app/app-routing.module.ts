@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BoxesFormComponent } from './boxes-form/boxes-form.component';
+import { ContentFormComponent } from './content-form/content-form.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { ExpandedFormComponent } from './expanded-form/expanded-form.component';
 import { FileFormComponent } from './file-form/file-form.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'expand', component: ExpandedFormComponent},
   {path: 'list', component: ListFormComponent},
   {path: 'dynamic', component: DynamicFormComponent},
+  {path: 'content', component: ContentFormComponent},
   {path: '**', redirectTo: 'simple'}
 ];
 

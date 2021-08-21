@@ -1,0 +1,9 @@
+mat-card {
+    width: 50%;
+    margin: 20px auto;
+}
+
+mat-card-content, mat-card-header {
+    display: flex;
+    justify-content: space-around;
+}

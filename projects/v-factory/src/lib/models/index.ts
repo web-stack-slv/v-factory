@@ -23,3 +23,4 @@ export * from './v-editor-field.model';
 export * from './v-file-field.model';
 export * from './v-divider.model';
 export * from './v-list.model';
+export * from './v-content.model';
