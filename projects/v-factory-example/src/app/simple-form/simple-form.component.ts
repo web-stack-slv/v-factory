@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { VList } from 'projects/v-factory/src/public-api';
 import { from, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import {
@@ -9,7 +8,6 @@ import {
   VCheckboxField,
   VColorField,
   VInputField,
-  VLabel,
   VMaskedField,
   VNumberField,
   VRadioField,
@@ -71,12 +69,12 @@ export class SimpleFormComponent implements OnInit {
     new VAutocompleteField({
       name: 'autocpl',
       label: 'VAutocompleteField',
-      options: [
-        {value: 1, label: 'First'},
-        {value: 2, label: 'Second'},
-        {value: 3, label: 'Third'},
-        {value: 4, label: 'Forth'},
-      ]
+      options: Array(1000).fill(null).map((x, idx) => {
+        return {
+          value: idx +1,
+          label: this._getString()
+        }
+      })
     }),
     new VCheckboxField({
       name: 'check',
@@ -140,5 +138,13 @@ constructor(){
       {value: 3, label: 'Third', data: {hint: 'Third Hint', color: 'green', icon: 'sailing'}},
       {value: 4, label: 'Forth', data: {hint: 'Forth Hint'}},
     ]]).pipe(first());
+  }
+
+  private _getString(): string {
+    return Array(10)
+    .fill(null)
+    .map(() => Math.round(Math.random() * 16).toString(16))
+    .join('')
+    .toUpperCase();
   }
 }

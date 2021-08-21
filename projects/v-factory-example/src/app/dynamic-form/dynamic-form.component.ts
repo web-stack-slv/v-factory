@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { VBox, VNumberField, VRadioField, VButton, VSliderField, VDivider, VAccordion } from 'v-factory';
 
@@ -14,7 +14,7 @@ export interface ITradeMargin {
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.scss']
 })
-export class DynamicFormComponent implements OnInit, AfterViewInit {
+export class DynamicFormComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
   title = 'DYNAMIC FORM';
 
@@ -155,7 +155,8 @@ export class DynamicFormComponent implements OnInit, AfterViewInit {
   ];
 
   constructor(
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private _changeDetectorRef: ChangeDetectorRef
   ) {
   }
 
@@ -169,6 +170,10 @@ export class DynamicFormComponent implements OnInit, AfterViewInit {
     }
 
     this.ranges.setValue(this.initData);
+  }
+
+  ngAfterViewChecked(): void {
+    this._changeDetectorRef.detectChanges();
   }
 
   submit(form: FormGroup) {

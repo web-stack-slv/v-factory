@@ -79,5 +79,4 @@ export class BoxesFormComponent extends BaseFormComponent {
   constructor() {
     super();
   }
-
 }

@@ -50,4 +50,8 @@ export class VAutocompleteFieldComponent implements OnInit {
     return option && option.label ? option.label : '';
   }
 
+  trackByFn(index, item) {
+    if(!item) return null;
+    return index;
+  }
 }
