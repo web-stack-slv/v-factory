@@ -86,11 +86,17 @@ export class SimpleFormComponent implements OnInit {
       label: 'VColorField'
     }),    
   new VSelectField({
-    label: 'VSelectField',
+    label: 'VSelectField Async',
     name: 'select',
     cls: 'hello',
     options: this._getOptions()
-  }),   
+  }),
+  new VSelectField({
+    label: 'VSelectField Sync',
+    name: 'select2',
+    icons: true,
+    options: this._getIconList()
+  }), 
   new VMaskedField({
     name: 'masked',
     label: 'VMaskedField',
@@ -107,7 +113,14 @@ export class SimpleFormComponent implements OnInit {
   }),  
   new VTextField({
     name: 'text',
-    label: 'VTextField'
+    label: 'VTextField 2-10',
+    rows: 2,
+    maxRows: 10
+  }),
+  new VTextField({
+    name: 'texts',
+    label: 'VTextField > 3',
+    rows: 3
   }),
   new VSlideToggleField({
     name: 'slider',
@@ -128,7 +141,7 @@ constructor(){
   ngOnInit(): void {}
 
   submit(form: FormGroup) {
-    console.log(form);
+    console.log(form.value);
   }
 
   private _getOptions(): Observable<Option[]>{
@@ -146,5 +159,32 @@ constructor(){
     .map(() => Math.round(Math.random() * 16).toString(16))
     .join('')
     .toUpperCase();
+  }
+
+  private _getIconList(): Option[] {
+    return [
+      {value: '3d_rotation', label: '3D Rotation'},
+      {value: 'android', label: 'Android'},
+      {value: 'bug_report', label: 'Bugs'},
+      {value: 'build', label: 'Build'},
+      {value: 'card_giftcard', label: 'Giftcard'},
+      {value: 'card_travel', label: 'Travel'},
+      {value: 'euro_symbol', label: 'Euro Symbol'},
+      {value: 'event_seat', label: 'Event Seat'},
+      {value: 'explore', label: 'Explore'},
+      {value: 'favorite', label: 'Favorite'},
+      {value: 'fingerprint', label: 'Fingerprint'},
+      {value: 'gavel', label: 'Gavel'},
+      {value: 'invert_colors', label: 'Invert Colors'},
+      {value: 'label_important', label: 'Label Important'},
+      {value: 'language', label: 'Language'},
+      {value: 'pan_tool', label: 'Pan Tool'},
+      {value: 'pets', label: 'Pets'},
+      {value: 'help_center', label: 'Help Center'},
+      {value: 'receipt_long', label: 'Receipt Long'},
+      {value: 'thumb_down_off_alt', label: 'Thumb Down Off Alt'},
+      {value: 'block', label: 'Block'},
+      {value: 'verified', label: 'Verified'}
+    ];
   }
 }

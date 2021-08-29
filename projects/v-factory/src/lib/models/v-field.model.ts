@@ -36,14 +36,16 @@ export class VField<T> extends VItem {
     }
 
     createControl(group: FormGroup): void {
-        const control = new FormControl(
-            this.value,
-            this._bindValidations()
-          );
-        if(this.disabled) {
-          control.disable();
+        if(!group.get(this.name)) {
+            const control = new FormControl(
+                this.value,
+                this._bindValidations()
+              );
+            if(this.disabled) {
+              control.disable();
+            }
+            group.addControl(this.name, control);
         }
-        group.addControl(this.name, control);
     }
 
     private _bindValidations(): Validators | null {

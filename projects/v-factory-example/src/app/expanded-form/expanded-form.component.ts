@@ -20,7 +20,9 @@ export class ExpandedFormComponent extends BaseFormComponent {
     new VAccordion({
       name:'documents',
       label: 'Documents',
+      //initStep: -1,
       getItemTitle: (idx) => this._getItemTitle(idx),
+      removeHandler: () => null,
       items: [
         new VBox({
           items: [

@@ -3,10 +3,12 @@ import { Style, FactoryValidator } from '../interfaces';
 
 export class VTextField extends VField<string> {
     rows?: number;
+    maxRows?: number;
 
     constructor(opts: {
         name: string,
         rows?: number,
+        maxRows?: number,
         label?: string,
         value?: string,
         disabled?: boolean,
@@ -19,5 +21,6 @@ export class VTextField extends VField<string> {
         super(opts);
         this._vtype = 'vtextfield';
         this.rows = opts['rows'] ? opts['rows'] : 5;
+        this.maxRows = opts['maxRows'] && opts['maxRows'] > this.rows  ? opts['maxRows'] : this.rows;
     }
 }

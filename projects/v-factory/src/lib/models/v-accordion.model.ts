@@ -5,6 +5,7 @@ import { FormGroup, FormArray } from '@angular/forms';
 export class VAccordion extends VItem {
     name: string;
     items: VItem[];
+    initStep?: number;
     getItemTitle?: Function;
     nextHandler?: Function;
     prevHandler?: Function;
@@ -17,6 +18,7 @@ export class VAccordion extends VItem {
       items: any[],
       name: string,
       label?: string;
+      initStep?: number,
       itemId?: string | number | Symbol,
       getItemTitle?: Function,
       nextHandler?: Function,
@@ -29,6 +31,10 @@ export class VAccordion extends VItem {
         this._vtype = 'vaccordion';
         this.name = opts['name'];
         this.items = opts['items'] || [];
+
+        if(opts['initStep']) {
+            this.setStep(+opts['initStep']);
+        }
 
         if(opts['getItemTitle']) {
           this.getItemTitle = opts['getItemTitle']

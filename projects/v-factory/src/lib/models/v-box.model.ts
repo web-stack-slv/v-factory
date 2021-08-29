@@ -35,6 +35,11 @@ export class VBox extends VItem {
 
     createControl(group: FormGroup): void {
         if(this.name) {
+            const control = group.get(this.name);
+            if(control) {
+                group.removeControl(this.name);
+            }
+            
             if(this.formMode === 'group') {
               const fg = new FormGroup({});
               group.addControl(this.name, fg);

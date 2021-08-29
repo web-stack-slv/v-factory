@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { Option } from '../../interfaces';
 import { VSelectField } from '../../models';
 
@@ -9,38 +9,54 @@ import { VSelectField } from '../../models';
   templateUrl: './v-select-field.component.html',
   styleUrls: ['./v-select-field.component.scss']
 })
-export class VSelectFieldComponent implements OnInit {
+export class VSelectFieldComponent implements OnInit, OnDestroy {
 
-  isAsyncSource = false;
+  private _selectSource =  new BehaviorSubject<Option[]>([]);
+  options = this._selectSource.asObservable();
 
   field: VSelectField;
   group: FormGroup;
 
-  constructor() { }
+  sub:Subscription;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     if(this.field.options instanceof Observable) {
-      this.isAsyncSource = true;
-    }
+      this.sub = this.field.options.subscribe(res => {
+        this._selectSource.next(res);
+      });
+    } else {
+      this._selectSource.next(this.field.options);
+    }    
   }
 
   get value(): string {
     return this.group.get(this.field.name).value || '';
   }
 
+  get option(): Option {
+    return this._selectSource.value.find(option => option.value === this.value);
+  }
+
   get label(): string {
-    return !this.isAsyncSource ? (this.field.options as Option[]).find(option => option.value === this.value).label || '' : '';
+    return this.option ? this.option.label : '';
   }
 
   get hint(): string {
-    return this.value && !this.isAsyncSource ? (this.field.options as Option[]).find(option => option.value === this.value).data?.hint || '' : '';
+    return this.value && this.option ? this.option.data?.hint || '' : '';
   }
 
   get color(): string {
-    return this.value && !this.isAsyncSource ? (this.field.options as Option[]).find(option => option.value === this.value).data?.color || '' : '';
+    return this.value && this.option ? this.option.data?.color || '' : '';
   }
 
   get icon(): string {
-    return this.value && !this.isAsyncSource ? (this.field.options as Option[]).find(option => option.value === this.value).data?.icon || '' : '';
+    return this.value && this.option ? this.option.data?.icon || '' : '';
+  }
+
+  ngOnDestroy(): void {
+    this.sub && this.sub.unsubscribe();
   }
 }

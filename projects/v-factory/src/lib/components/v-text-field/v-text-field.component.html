@@ -2,7 +2,10 @@
     <mat-label>{{field.label}}</mat-label>
     <textarea 
         [formControlName]="field.name"
-        [rows]="field.rows"
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        [cdkAutosizeMinRows]="field.rows"
+        [cdkAutosizeMaxRows]="field.maxRows"
         matInput
         trim
     ></textarea>

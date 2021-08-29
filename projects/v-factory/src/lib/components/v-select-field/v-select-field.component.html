@@ -8,24 +8,14 @@
     <mat-select-trigger *ngIf="field.icons">
       <mat-icon>{{value}}</mat-icon>&nbsp;&nbsp;&nbsp;{{label}}
     </mat-select-trigger>
-    <ng-container *ngIf="!isAsyncSource">
-      <mat-option
-        *ngFor="let option of field.options"
-        [value]="option.value"
-        [disabled]="option.data?.disabled">
-        <mat-icon *ngIf="field.icons">{{option.value}}</mat-icon>
-        {{option.label}}
-      </mat-option>
-    </ng-container>
-    <ng-container *ngIf="isAsyncSource">
-      <mat-option
-        *ngFor="let option of field.options | async"
-        [value]="option.value"
-        [disabled]="option.data?.disabled">
-        <mat-icon *ngIf="field.icons">{{option.value}}</mat-icon>
-        {{option.label}}
-      </mat-option>
-    </ng-container>
+    
+    <mat-option
+      *ngFor="let option of options | async"
+      [value]="option.value"
+      [disabled]="option.data?.disabled">
+      <mat-icon *ngIf="field.icons">{{option.value}}</mat-icon>
+      {{option.label}}
+    </mat-option>
   </mat-select>
   <mat-hint *ngIf="hint">{{hint}}</mat-hint>
   <mat-error *ngFor="let validation of field.getValMessage()">
