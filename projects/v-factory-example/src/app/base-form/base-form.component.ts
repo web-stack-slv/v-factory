@@ -10,6 +10,7 @@ import { VItem } from 'dist/v-factory/public-api';
 export class BaseFormComponent implements OnInit {
 
   title = 'Dynamic Form';
+  subtitle = 'Short form description';
   form: FormGroup = new FormGroup({});
   formConfig: VItem[] = [];
 

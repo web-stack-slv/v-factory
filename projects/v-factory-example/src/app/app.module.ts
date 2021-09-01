@@ -21,6 +21,7 @@ import { ExpandedFormModule } from './expanded-form/expanded-form.module';
 import { ListFormModule } from './list-form/list-form.module';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { ContentFormModule } from './content-form/content-form.module';
+import { ImageFormModule } from './image-form/image-form.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ContentFormModule } from './content-form/content-form.module';
     ExpandedFormModule,
     ListFormModule,
     DynamicFormModule,
-    ContentFormModule
+    ContentFormModule,
+    ImageFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]

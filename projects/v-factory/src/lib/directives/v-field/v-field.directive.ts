@@ -12,6 +12,7 @@ import { VDividerComponent } from '../../components/v-divider/v-divider.componen
 import { VDragDropListComponent } from '../../components/v-drag-drop-list/v-drag-drop-list.component';
 import { VEditorFieldComponent } from '../../components/v-editor-field/v-editor-field.component';
 import { VFileFieldComponent } from '../../components/v-file-field/v-file-field.component';
+import { VImageFieldComponent } from '../../components/v-image-field/v-image-field.component';
 import { VImageComponent } from '../../components/v-image/v-image.component';
 import { VInputFieldComponent } from '../../components/v-input-field/v-input-field.component';
 import { VLabelComponent } from '../../components/v-label/v-label.component';
@@ -48,7 +49,8 @@ const componentMapper = {
     veditorfield: VEditorFieldComponent,
     vfilefield: VFileFieldComponent,
     vdivider: VDividerComponent,
-    vlist: VListComponent
+    vlist: VListComponent,
+    vimagefield: VImageFieldComponent
 };
 
 @Directive({

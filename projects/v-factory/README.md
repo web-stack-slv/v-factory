@@ -4,7 +4,7 @@
 
 ## Start
 
-Angular CLI version 12.0.4.
+Angular CLI version 12.2.2.
 
 need to install angular material:
 
@@ -102,7 +102,9 @@ formConfig = [
     VTextField,
     VFileField,
     VEditorField,
-    VDivider
+    VDivider,
+    VContent,
+    VImageField
 
 ## json available types (all above classes in lowercase):
     vaccordion,
@@ -126,7 +128,9 @@ formConfig = [
     vtextfield,
     vfilefield,
     veditorfield,
-    vdivider
+    vdivider,
+    vcontent,
+    vimagefield
 
 ### formConfig can be as array of items or objects like parsed json.
 

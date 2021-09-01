@@ -11,10 +11,12 @@ import {
     VColorField,
     VContent,
     VDatepickerField,
+    VDivider,
     VDragDropList,
     VEditorField,
     VFileField,
     VImage,
+    VImageField,
     VInputField,
     VItem,
     VLabel,
@@ -97,7 +99,11 @@ export class VFactoryService {
         case 'vlist':
           return new VList({...item});
         case 'vcontent':
-        return new VContent({...item});
+            return new VContent({...item});
+        case 'vimagefield':
+            return new VImageField({...item});
+        case 'vdivider':
+            return new VDivider({...item});
         default:
             return null;
     }

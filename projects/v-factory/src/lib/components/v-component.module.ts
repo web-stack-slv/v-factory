@@ -22,6 +22,7 @@ import { VEditorFieldModule } from './v-editor-field/v-editor-field.module';
 import { VFileFieldModule } from './v-file-field/v-file-field.module';
 import { VDividerModule } from './v-divider/v-divider.module';
 import { VListModule } from './v-list/v-list.module';
+import { VImageFieldModule } from './v-image-field/v-image-field.module';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { VListModule } from './v-list/v-list.module';
     VEditorFieldModule,
     VFileFieldModule,
     VDividerModule,
-    VListModule
+    VListModule,
+    VImageFieldModule
   ],
   exports: [
     VBoxModule,
@@ -72,7 +74,8 @@ import { VListModule } from './v-list/v-list.module';
     VEditorFieldModule,
     VFileFieldModule,
     VDividerModule,
-    VListModule
+    VListModule,
+    VImageFieldModule
   ]
 })
 export class VComponentsModule { }
