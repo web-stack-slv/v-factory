@@ -1,7 +1,7 @@
 <ng-container *ngIf="!!this.field.name && this.field.formMode === 'array'"  [formGroup]="group">
     <label class="box-label" *ngIf="field.label">{{field.label}}</label>
     <ng-container [formArrayName]="field.name">
-        <ng-container *ngFor="let item of field.items; let i = index;" [formGroupName]="i">
+        <ng-container *ngFor="let item of field.items; let i = index;" [formGroupName]="i">            
             <ng-container
                 appVField
                 [field]="item"
@@ -15,7 +15,7 @@
 <ng-container *ngIf="!!this.field.name && this.field.formMode === 'group'"  [formGroup]="group">
     <label class="box-label" *ngIf="field.label">{{field.label}}</label>
     <ng-container [formGroupName]="field.name">
-        <ng-container *ngFor="let item of field.items">
+        <ng-container *ngFor="let item of field.items">            
             <ng-container
                 appVField
                 [field]="item"
@@ -28,7 +28,7 @@
 
 <ng-container *ngIf="!this.field.name"  [formGroup]="group">
     <label class="box-label" *ngIf="field.label">{{field.label}}</label>
-    <ng-container *ngFor="let item of field.items">
+    <ng-container *ngFor="let item of field.items">  
         <ng-container
             appVField
             [field]="item"
@@ -39,5 +39,8 @@
 </ng-container>
 
 
+     
+    
 
+    
 

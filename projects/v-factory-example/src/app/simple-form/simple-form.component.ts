@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { from, Observable } from 'rxjs';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import {
   VAutocompleteField,
@@ -24,6 +24,9 @@ import {
 })
 export class SimpleFormComponent implements OnInit {
   form: FormGroup;
+
+  private _optionSource = new BehaviorSubject<Option[]>([]);
+  options = this._optionSource.asObservable();
 
   formConfig = [
     new VInputField({
@@ -69,12 +72,7 @@ export class SimpleFormComponent implements OnInit {
     new VAutocompleteField({
       name: 'autocpl',
       label: 'VAutocompleteField',
-      options: Array(1000).fill(null).map((x, idx) => {
-        return {
-          value: idx +1,
-          label: this._getString()
-        }
-      })
+      options: this.options
     }),
     new VCheckboxField({
       name: 'check',
@@ -120,7 +118,8 @@ export class SimpleFormComponent implements OnInit {
   new VTextField({
     name: 'texts',
     label: 'VTextField > 3',
-    rows: 3
+    rows: 3,
+    value: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam cumque natus accusantium quos earum impedit consequatur et dolores corrupti repudiandae quo omnis quae, ad temporibus sed modi necessitatibus a ducimus!'
   }),
   new VSlideToggleField({
     name: 'slider',
@@ -138,10 +137,24 @@ constructor(){
   this.form = new FormGroup({});
 }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._loadOptions();
+  }
 
   submit(form: FormGroup) {
     console.log(form.value);
+  }
+
+  private _loadOptions(): void {
+    setTimeout(() => {
+      const options = Array(2000).fill(null).map((x, idx) => {
+        return {
+          value: idx +1,
+          label: this._getString()
+        }
+      });
+      this._optionSource.next(options);
+    }, 1000);
   }
 
   private _getOptions(): Observable<Option[]>{

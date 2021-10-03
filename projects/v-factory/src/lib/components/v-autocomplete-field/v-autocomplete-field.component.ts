@@ -37,11 +37,16 @@ export class VAutocompleteFieldComponent implements OnInit {
     );
   }
 
-  filter(value: string): Option[] | undefined {    
+  filter(value: string): Option[] | undefined {
     if (typeof value === 'string' && value.trim() !== '') {
       const filterValue = value.toLowerCase();
-      return this.data.filter((item: any) => item.label.toLowerCase().includes(filterValue)
-      );
+      return this.data
+        .filter((item: any) => item.label.toLowerCase().includes(filterValue))
+        .sort((a,b) => {
+          const aIdx = a.label?.toLowerCase().indexOf(filterValue),
+          bIdx = b.label?.toLowerCase().indexOf(filterValue);
+          return aIdx > bIdx ? 1 : -1;
+        });
     }
     return this.data;
   }

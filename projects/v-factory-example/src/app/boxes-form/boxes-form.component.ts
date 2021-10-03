@@ -10,6 +10,9 @@ import { VBox, VSliderField, VInputField, VDivider, VDatepickerField, VEditorFie
 export class BoxesFormComponent extends BaseFormComponent {
 
   title = 'FORM WITH BOXES (extended BaseForm)';
+  subtitle = `VBoxes support two layouts -  row | column (default) 
+              and three form mode for items - plate (just format view), 
+              group ( create nested form group), array (create form array, default)`;
 
   formConfig = [
     new VBox({

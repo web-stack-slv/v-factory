@@ -16,7 +16,7 @@ export interface ITradeMargin {
 })
 export class DynamicFormComponent implements OnInit, AfterViewInit, AfterViewChecked {
 
-  title = 'DYNAMIC FORM';
+  title = 'DYNAMIC FORM';  
 
   form: FormGroup = new FormGroup({});
 

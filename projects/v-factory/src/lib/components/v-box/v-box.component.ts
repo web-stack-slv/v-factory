@@ -23,5 +23,6 @@ export class VBoxComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.field.items = this.field.items.filter(item => item.getName() !== 'vcontent');
   }
 }

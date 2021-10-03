@@ -4,7 +4,7 @@ import { ContentFormComponent } from './content-form.component';
 import { VFactoryModule } from 'v-factory';
 import { MatCardModule } from '@angular/material/card';
 import { SectionComponent } from './section/section.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [ContentFormComponent, SectionComponent],
@@ -12,7 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     CommonModule,
     VFactoryModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatTableModule
   ],
   exports: [ContentFormComponent]
 })

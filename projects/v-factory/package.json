@@ -1,6 +1,6 @@
 {
   "name": "@farawayslv/v-factory",
-  "version": "1.6.10",
+  "version": "1.6.14",
   "author": "farawayslv",
   "license": "MIT",
   "url": "https://github.com/web-stack-slv/v-factory",
@@ -9,6 +9,12 @@
     "@angular/core": "~12.2.2",
     "@angular/material": "~12.2.2"
   },
+  "keywords": [
+    "angular",
+    "dynamic-form",
+    "typescript",
+    "material"
+  ],
   "dependencies": {
     "tslib": "^2.0.0"
   }

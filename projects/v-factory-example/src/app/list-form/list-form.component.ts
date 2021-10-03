@@ -11,6 +11,7 @@ import { FormControl } from '@angular/forms';
 export class ListFormComponent extends BaseFormComponent {
 
   title = 'FORM WITH LIST (extended BaseForm)';
+  subtitle = 'VList and VDragDropList its just for display data but they can interact with form';
 
   formConfig = [
     new VTextField({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { VContent, VTextField, VSlideToggleField, VNumberField, VButton } from 'v-factory';
+import { VContent, VTextField, VSlideToggleField, VNumberField, VButton, VBox, VInputField } from 'v-factory';
 
 @Component({
   selector: 'app-content-form',
@@ -18,8 +18,8 @@ export class ContentFormComponent implements OnInit {
     new VSlideToggleField({
       name: 'slider',
       label: 'VSlideToggleField'
-    }),
-    new VContent({}),
+    }), 
+    new VContent({}),   
     new VNumberField({
       name: 'number',
       label: 'VNumberField',

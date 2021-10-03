@@ -11,6 +11,7 @@ import { FormArray } from '@angular/forms';
 export class ExpandedFormComponent extends BaseFormComponent {
 
   title = 'EXPANDED FORM (extended BaseForm)';
+  subtitle = 'VAccordion support form array control format';
 
   get documents(): FormArray {
     return this.form.get('documents') as FormArray;

@@ -10,6 +10,7 @@ import { BaseFormComponent } from '../base-form/base-form.component';
 export class FileFormComponent extends BaseFormComponent {
 
   title = 'FORM WITH FILE FIELD (extended BaseForm)';
+  subtitle = 'VFileField support only sigle file selection.';
 
   formConfig = [
     new VInputField({
