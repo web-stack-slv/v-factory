@@ -32,6 +32,7 @@ export class SimpleFormComponent implements OnInit {
     new VInputField({
       label: 'Name',
       name: 'name',
+      clearButton: true,
       validators: [{
         required: true,
         message: 'Field is required'

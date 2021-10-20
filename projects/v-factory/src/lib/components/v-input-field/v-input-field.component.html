@@ -12,7 +12,7 @@
 
     <mat-icon *ngIf="field.suffix" matSuffix>{{field.suffix}}</mat-icon>
 
-    <button *ngIf="control.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearField()">
+    <button *ngIf="control.value && field.clearButton" matSuffix mat-icon-button aria-label="Clear" (click)="clearField()">
         <mat-icon>close</mat-icon>
     </button>
 
