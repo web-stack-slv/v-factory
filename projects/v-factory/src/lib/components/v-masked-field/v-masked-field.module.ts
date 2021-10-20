@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MaskModule } from '../../directives/mask/mask.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [VMaskedFieldComponent],
@@ -13,7 +14,8 @@ import { MaskModule } from '../../directives/mask/mask.module';
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
-    MaskModule
+    MaskModule,
+    MatButtonModule
   ]
 })
 export class VMaskedFieldModule { }

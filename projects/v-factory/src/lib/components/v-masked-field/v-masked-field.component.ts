@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { VMaskedField } from '../../models/v-masked-field.model';
 
 @Component({
@@ -12,8 +12,16 @@ export class VMaskedFieldComponent implements OnInit {
   field: VMaskedField;
   group: FormGroup;
 
+  get control(): FormControl {
+    return this.group.get(this.field.name) as FormControl;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  clearField(): void {
+    this.control.setValue('');
   }
 }

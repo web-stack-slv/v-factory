@@ -11,6 +11,11 @@
         matInput
     />
     <span *ngIf="field.suffix" matSuffix>{{field.suffix}}</span>
+
+    <button *ngIf="control.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearField()">
+        <mat-icon>close</mat-icon>
+    </button>
+
     <mat-hint *ngIf="field.hint">{{field.hint}}</mat-hint>
     <mat-error *ngFor="let validation of field.getValMessage()">
         <ng-container *ngIf="group.get(field.name).hasError(validation.name) && (group.get(field.name).dirty || group.get(field.name).touched)">

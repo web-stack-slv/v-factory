@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { VInputField } from '../../models';
 
 @Component({
@@ -12,9 +12,16 @@ export class VInputFieldComponent implements OnInit {
   field: VInputField;
   group: FormGroup;
 
+  get control(): FormControl {
+    return this.group.get(this.field.name) as FormControl;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+
+  clearField(): void {
+    this.control.setValue('');
+  }  
 }

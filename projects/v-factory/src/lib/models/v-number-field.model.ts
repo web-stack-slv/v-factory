@@ -26,6 +26,7 @@ export class VNumberField extends VField<number> {
         prefix?: string,
         suffix?: string,
         hint?: string,
+        clearButton?: boolean
     }) {
         super(opts);
         this._vtype = 'vnumberfield';

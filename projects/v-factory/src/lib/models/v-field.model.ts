@@ -13,6 +13,7 @@ export class VField<T> extends VItem {
     value?: T;
     disabled?: boolean;
     readonly?: boolean;
+    clearButton?: boolean;
     validators?: FactoryValidator[];
 
     constructor(opts: {
@@ -21,6 +22,7 @@ export class VField<T> extends VItem {
         value?: T,
         disabled?: boolean,
         readonly?: boolean,
+        clearButton?: boolean,
         validators?: FactoryValidator[],
         styles?: Style,
         cls?:string
@@ -32,6 +34,7 @@ export class VField<T> extends VItem {
         this.value = opts['value'] || null;
         this.disabled = opts['disabled'] || false;
         this.readonly = opts['readonly'] || false;
+        this.clearButton = opts['clearButton'] || false;
         this.validators = opts['validators'] || [];
     }
 

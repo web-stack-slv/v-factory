@@ -23,6 +23,7 @@ export class VMaskedField extends VField<string> {
         prefix?: string,
         suffix?: string,
         hint?: string,
+        clearButton?: boolean,
         validators?: FactoryValidator[],
     }) {
         super(opts);

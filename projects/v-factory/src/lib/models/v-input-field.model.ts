@@ -8,7 +8,7 @@ export class VInputField extends VField<string> {
     hint?: string;
     unique?: boolean;
     readonly?: boolean;
-    placeholder?: string;
+    placeholder?: string;    
 
     constructor(opts: {
         name: string,
@@ -25,6 +25,7 @@ export class VInputField extends VField<string> {
         prefix?: string,
         suffix?: string,
         hint?: string,
+        clearButton?: boolean,
         validators?: FactoryValidator[]
     }) {
         super(opts);

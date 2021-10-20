@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { TrimModule } from '../../directives/trim/trim.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [VInputFieldComponent],
@@ -13,7 +14,8 @@ import { TrimModule } from '../../directives/trim/trim.module';
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
-    TrimModule
+    TrimModule,
+    MatButtonModule
   ]
 })
 export class VInputFieldModule { }
