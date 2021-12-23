@@ -4,7 +4,9 @@
         [formControlName]="field.name"
         [placeholder]="field.placeholder"
         matInput 
-        [matAutocomplete]="auto">
+        [matAutocomplete]="auto"
+        (click)="onFocus()"        
+      >
     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option *ngFor="let option of filteredOptions | async; trackBy: trackByFn" [value]="option">
         {{option.label}}

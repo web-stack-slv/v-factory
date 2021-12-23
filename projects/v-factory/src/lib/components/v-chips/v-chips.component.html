@@ -1,0 +1,8 @@
+<mat-chip-list>
+  <mat-chip *ngFor="let option of options | async" 
+    [color]="option.data?.color"
+    [selected]="option.data?.selected"
+  >
+    {{option.label}}
+  </mat-chip>
+</mat-chip-list>

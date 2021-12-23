@@ -17,7 +17,10 @@ export class BaseFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this.formInit();
   }
+
+  formInit(): void {}
 
   submit(form: FormGroup) {
     console.log(form.value);

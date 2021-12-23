@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BaseFormComponent } from '../base-form/base-form.component';
-import { VBox, VSliderField, VInputField, VDivider, VDatepickerField, VEditorField, VButton } from 'v-factory';
+import { VBox, VSliderField, VInputField, VDivider, VDatepickerField, VEditorField, VButton, VAutocompleteField, Option, VChipsField } from 'v-factory';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-boxes-form',
@@ -14,7 +15,29 @@ export class BoxesFormComponent extends BaseFormComponent {
               and three form mode for items - plate (just format view), 
               group ( create nested form group), array (create form array, default)`;
 
+  private _brandSource = new BehaviorSubject<Option[]>([]);
+  brands = this._brandSource.asObservable();
+
+  private _selectedSource = new BehaviorSubject<Option[]>([]);
+  selected = this._selectedSource.asObservable();
+
   formConfig = [
+    new VBox({
+      items: [
+        new VAutocompleteField({
+          name: 'brands',
+          label: 'Brands',
+          options: this.brands
+        }),
+        new VChipsField({
+          name: 'selected',
+          removable: true,
+          selectable: true,
+          value: [{value: 1, label: 'SMART Inc.'}],
+          options: this.brands
+        })
+      ]
+    }),
     new VBox({
       layout: 'row',
       name: 'form-array',
@@ -67,6 +90,7 @@ export class BoxesFormComponent extends BaseFormComponent {
         marginTop: '20px'
       }
     }),
+    new VDivider({}),
     new VEditorField({
       name: 'editor',
       label: 'Editor'
@@ -81,5 +105,20 @@ export class BoxesFormComponent extends BaseFormComponent {
   
   constructor() {
     super();
+  }
+
+  formInit(): void {
+    this._loadBrands();
+  }
+
+  private _loadBrands(): void{
+    setTimeout(() => {
+      this._brandSource.next([
+        {value: 1, label: 'SMART Inc.'},
+        {value: 2, label: 'Dummy & Lame', data: { selected: true }},
+        {value: 3, label: 'CLEVER TECH', data: { selected: true }},
+        {value: 4, label: 'X-ABILITY', data: { selected: true }},
+      ]);
+    }, 2000);
   }
 }

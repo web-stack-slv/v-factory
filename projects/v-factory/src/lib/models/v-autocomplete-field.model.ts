@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 export class VAutocompleteField extends VField<string | number> {
     options: Option[] | Observable<Option[]>;
     placeholder?: string;
+    filter?: Function;
 
     constructor(opts: {
         name: string,
@@ -13,6 +14,7 @@ export class VAutocompleteField extends VField<string | number> {
         value?: string | number,
         placeholder?: string,
         validators?: FactoryValidator[],
+        filter?: Function,
         styles?: Style,
         cls?: string
     }) {
@@ -20,5 +22,6 @@ export class VAutocompleteField extends VField<string | number> {
         this._vtype = 'vautocompletefield';
         this.options = opts['options'] || [];
         this.placeholder = opts['placeholder'] || '';
+        this.filter = opts['filter'] || ((x:any) => true);
     }
 }

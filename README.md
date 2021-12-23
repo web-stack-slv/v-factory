@@ -4,7 +4,7 @@
 
 ## Start
 
-Angular CLI version 10.2.3.
+Angular CLI version 12.2.2.
 
 need to install angular material:
 
@@ -38,13 +38,13 @@ import { VFactoryModule } from '@farawayslv/v-factory';
 insert html part to container or card:
 ```javascript
 <v-v-factory  
-      [formConfig]="formConfig" 
-      [form]="form"
-      (submit)="submit($event)"
-	></v-v-factory>
+    [formConfig]="formConfig" 
+    [form]="form"
+    (submit)="submit($event)"
+></v-v-factory>
 ```
 
-# ##component.ts
+### component.ts
 
 in component need define new form and formConfig:
 ```javascript
@@ -80,13 +80,14 @@ formConfig = [
     })
   ];
 ```
-# List of available fields and containers:
+## List of available fields and containers:
     VAccordion,
     VAutocompleteField,
     VBox,
     VButton,
     VCheckboxField,
     VChipsField,
+    VChips,
     VColorField,
     VDatepickerField,
     VDragDropList,
@@ -99,9 +100,39 @@ formConfig = [
     VSelectField,
     VSlideToggleField,
     VSliderField,
-    VTextField
-    VFileField
-    VEditorField
+    VTextField,
+    VFileField,
+    VEditorField,
+    VDivider,
+    VContent,
+    VImageField
+
+## json available types (all above classes in lowercase):
+    vaccordion,
+    vautocompletefield,
+    vbox,
+    vbutton,
+    vcheckboxfield,
+    vchipsfield,
+    vchips,
+    vcolorfield,
+    vdatepickerfield,
+    vdragdroplist,
+    vimage,
+    vinputfield,
+    vlabel,
+    vmaskedfield,
+    vnumberfield,
+    vradiofield,
+    vselectfield,
+    vslidetogglefield,
+    vsliderfield,
+    vtextfield,
+    vfilefield,
+    veditorfield,
+    vdivider,
+    vcontent,
+    vimagefield
 
 ### formConfig can be as array of items or objects like parsed json.
 

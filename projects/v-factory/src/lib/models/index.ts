@@ -25,3 +25,4 @@ export * from './v-divider.model';
 export * from './v-list.model';
 export * from './v-content.model';
 export * from './v-image-field.model';
+export * from './v-chips-field.model';

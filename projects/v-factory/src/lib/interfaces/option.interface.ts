@@ -7,6 +7,7 @@ export interface Option {
       icon?: string,
       info?: string,
       disabled?: boolean,
+      selected?: boolean,
       item?: any
     };
 }

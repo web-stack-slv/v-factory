@@ -1,19 +1,30 @@
-<mat-chip-list aria-label="field.label" *ngIf="!field.name">    
-    <mat-chip *ngFor="let option of options" [color]="option.data?.color" [selected]="option.data?.selected">{{option.label}}</mat-chip>
-</mat-chip-list>
-
-<mat-form-field *ngIf="field.name" [formGroup]="group">
-    <mat-label>{{field.label}}</mat-label>
-    <mat-chip-list #chipList aria-label="field.label">
-      <mat-chip *ngFor="let option of options" [selectable]="selectable"
-               [removable]="removable" (removed)="remove(option)" color="accent">
-        {{option.label}}
-        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+<mat-form-field  [formGroup]="group">
+    <mat-label *ngIf="field.label">{{ field.label }}</mat-label>
+    <mat-chip-list #chipList>
+      <mat-chip
+        *ngFor="let item of chips | async"
+        [color]="item.data?.color"
+        [selected]="item.data?.selected"
+        (removed)="remove(item)"
+        >
+        {{ item.label }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
       </mat-chip>
-      <input [placeholder]="field.placeholder"
-             [matChipInputFor]="options"
-             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-             [matChipInputAddOnBlur]="addOnBlur"
-             (matChipInputTokenEnd)="add($event)">
+      <input
+        [placeholder]="field.placeholder"
+        #chipsInput
+        [formControl]="filterControl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (click)="onFocus()"
+    >
     </mat-chip-list>
-  </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of options | async" [value]="option">
+        {{option.label}}
+      </mat-option>
+    </mat-autocomplete>
+</mat-form-field>

@@ -15,7 +15,7 @@ import { VSlideToggleFieldModule } from './v-slide-toggle-field/v-slide-toggle-f
 import { VSliderFieldModule } from './v-slider-field/v-slider-field.module';
 import { VAccordionModule } from './v-accordion/v-accordion.module';
 import { VLabelModule } from './v-label/v-label.module';
-import { VChipsFieldModule } from './v-chips-field/v-chips-field.module';
+import { VChipsModule } from './v-chips/v-chips.module';
 import { VDragDropListModule } from './v-drag-drop-list/v-drag-drop-list.module';
 import { VColorFieldModule } from './v-color-field/v-color-field.module';
 import { VEditorFieldModule } from './v-editor-field/v-editor-field.module';
@@ -23,6 +23,7 @@ import { VFileFieldModule } from './v-file-field/v-file-field.module';
 import { VDividerModule } from './v-divider/v-divider.module';
 import { VListModule } from './v-list/v-list.module';
 import { VImageFieldModule } from './v-image-field/v-image-field.module';
+import { VChipsFieldModule } from './v-chips-field/v-chips-field.module';
 
 @NgModule({
   imports: [
@@ -42,14 +43,15 @@ import { VImageFieldModule } from './v-image-field/v-image-field.module';
     VSliderFieldModule,
     VAccordionModule,
     VLabelModule,
-    VChipsFieldModule,
+    VChipsModule,
     VDragDropListModule,
     VColorFieldModule,
     VEditorFieldModule,
     VFileFieldModule,
     VDividerModule,
     VListModule,
-    VImageFieldModule
+    VImageFieldModule,
+    VChipsFieldModule
   ],
   exports: [
     VBoxModule,
@@ -68,14 +70,15 @@ import { VImageFieldModule } from './v-image-field/v-image-field.module';
     VSliderFieldModule,
     VAccordionModule,
     VLabelModule,
-    VChipsFieldModule,
+    VChipsModule,
     VDragDropListModule,
     VColorFieldModule,
     VEditorFieldModule,
     VFileFieldModule,
     VDividerModule,
     VListModule,
-    VImageFieldModule
+    VImageFieldModule,
+    VChipsFieldModule
   ]
 })
 export class VComponentsModule { }

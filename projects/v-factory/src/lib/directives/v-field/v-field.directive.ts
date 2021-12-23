@@ -6,6 +6,7 @@ import { VBoxComponent } from '../../components/v-box/v-box.component';
 import { VButtonComponent } from '../../components/v-button/v-button.component';
 import { VCheckboxFieldComponent } from '../../components/v-checkbox-field/v-checkbox-field.component';
 import { VChipsFieldComponent } from '../../components/v-chips-field/v-chips-field.component';
+import { VChipsComponent } from '../../components/v-chips/v-chips.component';
 import { VColorFieldComponent } from '../../components/v-color-field/v-color-field.component';
 import { VDatepickerFieldComponent } from '../../components/v-datepicker-field/v-datepicker-field.component';
 import { VDividerComponent } from '../../components/v-divider/v-divider.component';
@@ -43,14 +44,15 @@ const componentMapper = {
     vsliderfield: VSliderFieldComponent,
     vaccordion: VAccordionComponent,
     vlabel: VLabelComponent,
-    vchipsfield: VChipsFieldComponent,
+    vchips: VChipsComponent,
     vdragdroplist: VDragDropListComponent,
     vcolorfield: VColorFieldComponent,
     veditorfield: VEditorFieldComponent,
     vfilefield: VFileFieldComponent,
     vdivider: VDividerComponent,
     vlist: VListComponent,
-    vimagefield: VImageFieldComponent
+    vimagefield: VImageFieldComponent,
+    vchipsfield: VChipsFieldComponent
 };
 
 @Directive({

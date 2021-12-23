@@ -7,6 +7,7 @@ import {
     VBox,
     VButton,
     VCheckboxField,
+    VChips,
     VChipsField,
     VColorField,
     VContent,
@@ -88,6 +89,8 @@ export class VFactoryService {
             return new VLabel({...item});
         case 'vchipsfield':
             return new VChipsField({...item});
+        case 'vchips':
+            return new VChips({...item});
         case 'vdragdroplist':
             return new VDragDropList({...item});
         case 'vcolorfield':
