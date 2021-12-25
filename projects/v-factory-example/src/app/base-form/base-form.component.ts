@@ -25,4 +25,8 @@ export class BaseFormComponent implements OnInit {
   submit(form: FormGroup) {
     console.log(form.value);
   }
+
+  codeHTML = ``;
+  
+  codeTS = ``;
 }

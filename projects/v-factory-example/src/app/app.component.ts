@@ -12,6 +12,7 @@ import { map, shareReplay } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   @ViewChild('drawer', { static: true }) drawer: MatSidenav;
   iconName = 'menu';
+  opened: boolean;
 
   isHandset$: Observable<boolean> = this._breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
@@ -21,7 +22,12 @@ export class AppComponent implements OnInit {
 
   constructor(
     private _breakpointObserver: BreakpointObserver
-  ) { }
+  ) { 
+    this.isHandset$
+    .subscribe(value => {
+      this.opened = value === false;
+    }); 
+  }
 
   ngOnInit(): void {
   }
