@@ -18,6 +18,7 @@ install v-factory:
 ## Example
 
 Full example: https://github.com/web-stack-slv/v-factory
+Live example: https://v-factory-lib.com
 
 ### import v-factory to module: 
 
