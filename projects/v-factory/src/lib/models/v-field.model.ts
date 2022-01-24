@@ -14,6 +14,8 @@ export class VField<T> extends VItem {
     disabled?: boolean;
     readonly?: boolean;
     clearButton?: boolean;
+    actionButton?: boolean;
+    actionHandler?: Function;
     validators?: FactoryValidator[];
 
     constructor(opts: {
@@ -23,6 +25,8 @@ export class VField<T> extends VItem {
         disabled?: boolean,
         readonly?: boolean,
         clearButton?: boolean,
+        actionHandler?: Function,
+        actionButton?: boolean,
         validators?: FactoryValidator[],
         styles?: Style,
         cls?:string
@@ -35,7 +39,9 @@ export class VField<T> extends VItem {
         this.disabled = opts['disabled'] || false;
         this.readonly = opts['readonly'] || false;
         this.clearButton = opts['clearButton'] || false;
+        this.actionButton = opts['actionButton'] || false;
         this.validators = opts['validators'] || [];
+        this.actionHandler = opts['actionHandler'] || function(){};
     }
 
     createControl(group: FormGroup): void {

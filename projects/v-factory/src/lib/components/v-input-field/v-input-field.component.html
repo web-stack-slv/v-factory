@@ -10,10 +10,14 @@
         trim
     />
 
-    <mat-icon *ngIf="field.suffix" matSuffix>{{field.suffix}}</mat-icon>
+    <mat-icon *ngIf="field.suffix && !field.actionButton" matSuffix>{{field.suffix}}</mat-icon>
 
     <button *ngIf="control.value && field.clearButton" matSuffix mat-icon-button aria-label="Clear" (click)="clearField()">
         <mat-icon>close</mat-icon>
+    </button>
+
+    <button *ngIf="field.actionButton" matSuffix mat-icon-button (click)="actionClicked($event)">
+        <mat-icon>{{field.suffix}}</mat-icon>
     </button>
 
     <mat-hint *ngIf="field.hint">{{field.hint}}</mat-hint>

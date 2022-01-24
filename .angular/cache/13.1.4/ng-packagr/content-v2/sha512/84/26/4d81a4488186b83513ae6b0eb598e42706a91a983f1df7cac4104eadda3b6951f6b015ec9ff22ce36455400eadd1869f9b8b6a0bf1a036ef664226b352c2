@@ -1,0 +1,1 @@
+{"css":".file-input{width:100%;border:1px dashed #808080;border-radius:3px;padding:10px 5px;color:gray;margin-bottom:10px}.file-input::-webkit-file-upload-button{visibility:hidden}::ng-deep .custom-error{display:flex;justify-content:flex-start;color:#f44336;font-size:.7rem}\n","warnings":[]}

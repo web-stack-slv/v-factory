@@ -23,5 +23,9 @@ export class VInputFieldComponent implements OnInit {
 
   clearField(): void {
     this.control.setValue('');
-  }  
+  }
+
+  actionClicked(event: any): void {
+    this.field.actionHandler(event);
+  }
 }

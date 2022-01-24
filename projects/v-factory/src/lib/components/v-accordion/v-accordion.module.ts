@@ -5,7 +5,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { VFieldModule } from '../../directives/v-field/v-field.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatExpansionModule,
     MatIconModule,
     MatButtonModule,
-    VFieldModule,
     MatTooltipModule
   ],
   exports: [VAccordionComponent]

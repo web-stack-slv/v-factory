@@ -54,6 +54,9 @@ export class SimpleFormComponent implements OnInit {
       label: 'Password',
       name: 'password',
       type: 'password',
+      actionButton: true,
+      actionHandler: this._handleActionClick,
+      suffix: 'visibility',      
       validators: [{
         minlength: 10,
         message: 'Min 10 chars'
@@ -173,6 +176,10 @@ constructor(){
     .map(() => Math.round(Math.random() * 16).toString(16))
     .join('')
     .toUpperCase();
+  }
+
+  private _handleActionClick(event: any): void {
+    this['type'] = this['type'] === 'text' ? 'password' : 'text';
   }
 
   private _getIconList(): Option[] {
